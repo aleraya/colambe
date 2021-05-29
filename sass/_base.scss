@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;     /*Les largeurs prendront en compte les padding et les bordures*/
+    margin: 0;
+    padding: 0;
+}   
+
+body{
+    font-size: $base-font-size;
+    font-family: $font-primary;
+    color: $color;
+    line-height: 1.5;            /* Hauteur de ligne 30px dans maquette, soit 1.8% de la font size */
+    background-color: $background;
+}
+
+h1 {
+    padding: 10px 0;
+    margin: 5% 0;    
+    text-align: center;
+    color: $background-card;
+    font-size: 1.2em;
+    background-color: $background-title;
+    border-right: 2px $background-nav solid;
+    border-bottom: 2px $background-nav solid;
+    box-shadow: 2px 2px 2px $background-nav;
+}
+
+h2, h3 {
+    color: $color-nav;
+}
+
+h2 {
+    margin: 2% 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+p {
+    color: $color;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 40px;
+}
+
+.txtcenter {
+    text-align: center;
+ }
+
+
+input, textarea {
+margin: 1% 0;
+background-color: $background-card;
+display: block;
+width: 100%;
+padding: 0.375rem 0.75rem;
+font-size: 1rem;
+line-height: 1.5;
+color: $color;
+background-clip: padding-box;
+border: 1px solid $background-card;
+border-radius: 0.25rem;
+}
+
+textarea {
+height: 4em;;
+}
+
+button {
+display: inline-block;
+white-space: nowrap;
+vertical-align: middle;
+background-color: $background-nav;
+color: $color-nav;
+text-align : center;
+font-family : $font-primary;
+font-size: 1.25rem;
+border: 1px solid transparent;
+padding: 0.375em 0.75em;
+line-height: 1.5;
+border-radius: 0.25rem;  
+margin-left: 50%; 
+margin-top: 5%;
+transform: translateX(-50%);    
+cursor: pointer;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap" rel="stylesheet"> 
+    <!-- pour ajouter logo sur onglet des pages avoir image de 16x16 ou 32x32
+         si .ico image/x-icon; si .pgn image/pgn-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
+    <title>Colambe | Massages bien-être</title>
+    <meta name="description" content="Texte décrivant mon activité"> <!--TODO remplacer description-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="l-header"> 
+        <div class="l-header__logo">
+            <a href="index.html"><img src="img/logo-complet-144-55.png" alt="Logo et baseline Colambe massages bien être" height="55" width="144"></a>
+        </div>
+        <nav class="l-header__nav">
+            <div class="l-nav-mobile"><span class=l-nav-mobile__icon-menu></span></div>
+            <!-- <label for="menu-mobile" class="l-nav__menu-mobile"><span class=l-nav__icon-menu></span></label> -->
+            <!-- <input type="checkbox" id="menu-mobile" role="button"> -->
+            <ul class = "l-nav">
+                <li class="l-nav__menu"><a href="index.html">Accueil</a></li>
+                <li class="l-nav__menu"><a href="pages/qui-suis-je.html">Qui suis-je ?</a></li>
+                <li class="l-nav__menu"><a href="#">Particuliers</a>
+                    <ul class="l-nav__submenu">
+                        <li><a href="pages/shiatsu-sur-chaise.html">Shiatsu sur chaise</a></li>
+                        <li><a href="pages/californien.html">Massage californien</a></li>   
+                        <li><a href="pages/massage-5-continents.html">Massage des 5 continents</a></li>   
+                    </ul>
+                </li>
+                <li class="l-nav__menu"><a href="#">Evênementiel</a>
+                    <ul class="l-nav__submenu">
+                        <li><a href="pages/entreprise.html">Massage en entreprise</a></li>   
+                        <li><a href="pages/evenementiel.html">Autre évênementiel</a></li>
+                    </ul>
+                </li>
+                <li class="l-nav__menu"><a href="pages/tarifs.html">Tarifs</a></li>
+                <li class="l-nav__menu"><a href="pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class=l-banner>
+        <!--<img class="banner-img" src="img/banniere-huile-et-table-de-massage3.jpg" alt="Huile et table de massage" width="1507" height="353">
+            <img src="img/banniere-shiatsu-sur-chaise.jpg" alt="Shiatsu sur chaise" width="1512" height="540">
+        -->
+    </div>  
+    
+    <main class="l-main" >
+        <a href="pages/shiatsu-sur-chaise.html">
+            <article class="prestation">
+                <h1 class="prestation-title">Shiatsu sur chaise</h1>
+                <img class= "prestation-img" src="img/shiatsu1-406-406.png" alt="Shiatsu sur chaise, amma, anma"> <!--TODO remplacer texte et # par image-->
+                <p class="prestation-resume">
+                    Technique de relaxation, à la fois relaxante et énergisante, où le receveur est habillé, en position assise sur une chaise ergonomique.
+                </p>
+            </article>
+        </a>
+        <a href="pages/californien.html">
+            <article class="prestation">
+                <h1 class="prestation-title">Massage californien</h1>
+                <img class= "prestation-img" src="img/californien1-405-405.png" alt="Massage californien"> <!--TODO remplacer texte et  # par image-->
+                <p class="prestation-resume">
+                    Massage aux huiles visant à la détente  par de longs mouvements doux et fluides.    
+                </p>
+            </article>
+        </a>
+        <a href="pages/massage-5-continents.html">
+            <article class="prestation">
+                <h1 class="prestation-title">Massage des 5 continents</h1>
+                <img class= "prestation-img" src="img/huile-407-407.png" alt="Massage des 5 continents"> <!--TODO remplacer texte et # par image-->
+                <p class="prestation-resume">
+                    Massage aux huiles combinant plusieurs techniques de massages issus des 5 continents (massages ....)
+                </p>
+            </article>
+        </a>
+        <a href="pages/entreprise.html">
+            <article class="prestation">
+                <h1 class="prestation-title">Massage en entreprise</h1>
+                <img class= "prestation-img" src="img/shiatsu2-405-405.png" alt="Shiatsu sur chaise en entreprise"> <!--TODO remplacer texte et # par image-->
+                <p class="prestation-resume">
+                    Shiatsu sur chaise pratiqué en entreprise, pour un maximum de détente en un minimum de temps. 
+                </p>
+            </article>
+        </a>
+        <a href="pages/evenementiel.html">
+            <article class="prestation">
+                <h1 class="prestation-title">Autre évênementiel</h1>
+                <img class= "prestation-img" src="img/shiatsu3-403-403.png" alt="Shiatsu sur chaise diverses occasions, ..."> <!--TODO remplacer texte et # par image-->
+                <p class="prestation-resume">
+                    Massages (généralement shiatsu sur chaise) proposés lors de divers évênements (salon, mariage, sur camping, ...)
+                </p>
+            </article>
+        </a>
+    </main>
+    <footer class="l-footer">
+        <!--Informations 1ère colonne -->
+        <div class="l-footer__legislation column">
+            <p class= "l-footer__legal-txt">Les massages proposés sont non thérapeutiques et ne s'apparentent à aucune pratique médicale.</p>
+            <p class= "l-footer__legal-copyright">Colambe © 2020</p>
+            <a class= "l-footer__legal-CGV" href="#">Mentions légales</a>
+        </div>
+        <!--Informations 2ème colonne -->
+        <div class="l-footer__adress column">
+            <img src="img/logo-complet-144-55.png" alt="Logo et baseline Colambe Massages bien-être" height="55" width="144">
+            <address>Anne LERAY <br>80 avenue Ravel <br>44850 LIGNE</address>
+        </div>
+        <!--Informations 3ème colonne -->
+        <div class="l-footer__contact column">
+            <h3 class="l-footer__contact-title">Contact</h3>
+            <address class='l-footer__contact-information'>
+                <span class="l-footer__icon"><i class="fas fa-mobile-alt"></i></span>06 52 70 86 37 <br>
+                <a href="https://www.facebook.com/colambe" target="_blank"><span class="l-footer__icon"><i class="fab fa-facebook"></i></span>colambe</a><br>
+                <span class="l-footer__icon"><i class="far fa-envelope"></i></span>anne.leray@colambe.fr
+            </address>
+    
+        </div>
+    </footer>
+    
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

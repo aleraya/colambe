@@ -1,0 +1,26 @@
+Projet réalisé à partir de Sass.
+
+====================================
+
+Dans Visual Studio Code, pour modifier le projet avec sass.
+Saisir dans le terminal : 
+
+./dart-sass/sass sass/style.scss css/style.css --watch
+Modifier les fichiers .scss
+
+Pour en savoir plus sur sass.
+Fichier Excel : D:\Anne\Mes Formations\Entrainements|Essentiel.xlsx
+Onglet Sass.
+
+====================================
+
+La structure du CSS s'appuie en partie 
+- sur la méthode SMACSS : avec séparation l-nav, l-footer, ...
+	http://jonathanpath.com/sass+smacss/#boutons
+- sur la méthode BEM avec Block__Element
+	https://www.youtube.com/watch?v=fGw85MpF6N8
+https://www.1min30.com/developpement-web/le-css-avec-le-bem-et-smacss-1287459399
+
+====================================
+
+Dans app.js, partie sendmail non connectée.

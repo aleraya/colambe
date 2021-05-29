@@ -1,0 +1,118 @@
+/* =======================
+   Module/Prestation
+   ======================= */
+
+/* =======================   Page d'accueil =================*/
+
+.prestation {
+   width: 320px;
+   height: 480px;
+   padding: rem(20);
+   margin: rem(20) rem(30);
+   text-align: justify;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+   @media #{$large-down} {
+      margin: rem(20) rem(10);
+   }
+
+}
+
+.prestation:hover {
+   @extend %box;
+}
+
+
+.prestation-resume {
+   @include line(4);
+}
+
+
+/* =======================   Page prestation =================*/
+
+.prestation-detail {
+   display: flex;
+
+   li {
+      display: list-item;
+      text-align: match-parent;
+      margin-top: 1%;
+   }
+
+   p {
+      text-align: justify;
+   }
+
+   &__gauche {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 33%;
+
+   }
+   
+   &__droite {
+      height: auto;
+      padding: 0 1%;
+      width: 67%;
+   }
+
+   @media #{$large-down} {
+      flex-direction: column;
+
+      &__gauche {
+         flex-direction: row;
+         align-items: center;
+         width: 100%;
+      }
+      
+      &__droite {
+         width: 100%;
+      }
+   }
+   @media #{$medium-down} {
+
+      &__gauche {
+         flex-direction: column;
+      }
+   }
+
+
+}
+
+
+.prestation-card {
+   border-radius : 10px;
+   margin: rem(20) auto;
+   padding: rem(10) rem(20);
+   width: 80%;
+   @extend %box;
+
+   @media #{$large-down} {
+      margin: rem(20) rem(10);
+   }
+   @media #{$medium-down} {
+      margin: rem(20) auto;
+   }
+
+}
+
+
+/* =======================   Commun page d'accueil & Page prestation =================*/
+
+
+.prestation-title {
+   width : 100%; 
+}
+
+
+
+.prestation-img  {
+   // border-radius: 50%; à mettre avec une border rose si image carrée
+   max-width: 240px;
+   margin: rem(10) auto;
+   text-align:center;
+}

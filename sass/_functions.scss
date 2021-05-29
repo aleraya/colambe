@@ -1,0 +1,23 @@
+@use "sass:math";
+
+$base-font-size: 16px!default;
+
+/* Recherche strip unit sass pour avoir le bout de code ci-dessous qui enlève les unités de mesures à l valeur */
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return math.div($number, $number * 0 + 1);
+    }
+  
+    @return $number;
+}
+
+/* Par rapport à la taille de la police globale du body */
+@function rem($size, $base: $base-font-size) {
+    @return math.div(1rem * $size, strip-unit($base));
+}
+
+/* Par rapport à l taille de la police spécifique à l'élément */
+@function em($size, $base: $base-font-size) {
+    @return math.div(1em * $size, strip-unit($base));
+}
+

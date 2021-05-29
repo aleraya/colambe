@@ -1,0 +1,26 @@
+/* =======================
+   Module/Price
+   ======================= */
+
+.price {
+
+   border-collapse: collapse;
+   letter-spacing: 1px;
+   font-size: 1rem;
+   text-align: center;
+   margin: 0 auto;
+
+   &__prestation-title {
+      text-align: center;
+      color: $color-nav;
+      margin: 10% 0 3% 0;
+   }
+
+}
+
+
+.trace {
+   border: 1px solid $color-trace;
+   padding: 10px;
+   font-family: $font-secondary; 
+}

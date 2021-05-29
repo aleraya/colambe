@@ -1,0 +1,28 @@
+/* =======================
+   Layout/Main
+   ======================= */
+
+.l-main {
+   position: relative;             /* Pour permettre le centrage avec utilisation left/right */
+   /*border: 1px solid red;*/
+   width: 80%;  
+   left:10%;
+   right:10%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+
+   &__detail {
+      width: 100%;
+   }
+   
+   .multiple {
+      flex-direction: column;
+   }
+
+   @media #{$small-down} {
+      width: 100%;
+      left: 0;
+      right: 0;
+   }
+}

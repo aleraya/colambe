@@ -1,0 +1,62 @@
+/* ==|====================
+   Layout/Footer
+   ======================= */
+
+.l-footer {
+   margin: rem(20);
+   background-color: $background-nav;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+
+   .column {
+      flex: 1;
+      margin: 1%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      //height: 142px;
+      font-size: 0.95rem;
+   }
+  
+   &__legal-txt {
+      padding: rem(10);
+      text-align: center;
+   }
+
+   &__legal-copyright {
+      margin-top: rem(5);
+   }
+
+   &__legal-CGV {
+      display: none;
+   }
+
+   &__adress address {
+      margin-top: rem(20);
+      text-align: center   ;
+   }
+
+   &__contact-title {
+      margin-top: rem(25);
+   }
+
+   &__contact-information {
+      margin: rem(20) 0 0 rem(20) ;
+
+      a, a:visited {
+         color: $color;
+      }
+   }
+
+   &__icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+   }
+
+   @media #{$medium-down} {
+      flex-direction: column;
+   }
+
+}  

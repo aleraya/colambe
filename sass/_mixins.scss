@@ -1,0 +1,8 @@
+
+/* Affiche n lignes et arrête l'affichage du texte. Si pas terminé, le texte affiche ... */
+@mixin line($nb) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $nb;
+    overflow: hidden;
+}

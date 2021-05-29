@@ -1,0 +1,33 @@
+//http://jonathanpath.com/sass+smacss/#organisation
+
+/* =======================
+   BASE
+   ======================= */
+@import "normalize.scss";
+@import "site-settings.scss";
+
+@import "functions.scss";
+@import "mixins.scss";
+@import "responsive.scss";
+
+@import "base.scss";
+
+/* =======================
+   LAYOUT
+   ======================= */
+
+@import "layout/header.scss";
+@import "layout/nav.scss";
+@import "layout/banner.scss";
+@import "layout/main.scss";
+@import "layout/footer.scss";
+
+/* =======================
+   MODULES
+   ======================= */
+
+@import "modules/prestation.scss";
+@import "modules/contact.scss";
+@import "modules/_price.scss";
+
+

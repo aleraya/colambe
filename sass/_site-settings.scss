@@ -1,0 +1,21 @@
+$base-font-size : 16px;
+
+$background : #DADADA;
+$background-nav : #A26DAC;
+$background-hover: rgba(222, 29, 115, 0.30);
+$background-title : #DD1377;
+$background-card : #F7FAFB;  /* F7FAFB */
+$background-input : #E4E4E4; /* E4E4E4 */
+$color : #2C2C2C;
+$color-nav : #503F94;
+$color-trace: rgb(190, 190, 190);
+$font-primary : 'Inter', sans-serif;
+$font-secondary : 'Montserrat', sans-serif;
+
+
+%box{
+	border-radius: 10px;
+    background-color: $background-card;
+    border: 2px $background-nav solid;
+    box-shadow: 2px 2px 2px $background-nav;
+}

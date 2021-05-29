@@ -1,0 +1,31 @@
+/* =======================
+   Layout/Banner
+   ======================= */
+
+.l-banner {
+
+   margin-top: rem(74);           /* Pour pallier au décalage générer lors de la mise du menu en static */
+   margin-bottom: rem(20);
+   background: url(img/banniere-shiatsu-sur-chaise.jpg) center  no-repeat;
+   background-size: cover;
+   height: 20rem;  
+     
+   @media #{$large-down} {
+      margin-top: rem(83);
+   }
+
+   @media #{$small-down} {
+      background: none;
+      height: 0;
+   }
+}
+
+.l-banner-empty {
+
+   margin-top: rem(74);           /* Pour pallier au décalage générer lors de la mise du menu en static */
+   margin-bottom: rem(20);
+     
+   @media #{$large-down} {
+      margin-top: rem(83);
+   }
+}

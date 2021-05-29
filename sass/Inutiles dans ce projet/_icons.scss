@@ -1,0 +1,143 @@
+/* ==|====================
+   Module/Icons
+   Method by @vtcreative
+   Documentation : http://goo.gl/kWyRmT
+   ======================= */
+
+/* Version saas */
+/*@import "compass/utilities/sprites";
+
+$sprites: sprite-map("icons/*.png");
+$sprites2x: sprite-map("icons-2x/*.png");
+
+[class^="icon-"],
+[class*=" icon-"] {
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-image: sprite-url($sprites);
+
+  @media (-webkit-min-device-pixel-ratio: 1.5),
+         (-o-min-device-pixel-ratio: 3/2),
+         (min-device-pixel-ratio: 1.5) {
+    background-image: sprite-url($sprites2x);
+    background-size: ceil(image-width(sprite-path($sprites2x)) / 2) auto;
+  }
+}
+
+@mixin sprite-background($name) {
+  background-position: sprite-position($sprites, $name);
+  height: image-height(sprite-file($sprites, $name));
+  width: image-width(sprite-file($sprites, $name));
+
+  @media (-webkit-min-device-pixel-ratio: 1.5),
+         (-o-min-device-pixel-ratio: 3/2),
+         (min-device-pixel-ratio: 1.5) {
+    background-position: 0 round(nth(sprite-position($sprites2x, $name), 2) / 2);
+  }
+}
+
+.icon-facebook {
+  //@include sprite-background(facebook);
+}
+
+*/
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?fgh6aw');
+  src:  url('fonts/icomoon.eot?fgh6aw#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?fgh6aw') format('truetype'),
+    url('fonts/icomoon.woff?fgh6aw') format('woff'),
+    url('fonts/icomoon.svg?fgh6aw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-envelop:before {
+  content: "\e945";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-mobile2:before {
+  content: "\e959";
+}
+.icon-menu:before {
+  content: "\e9bd";
+}*/
+.icon-menu2:before {
+  content: "\e9be";
+}
+.icon-menu3:before {
+  content: "\e9bf";
+}
+.icon-menu4:before {
+  content: "\e9c0";
+}
+.icon-mail:before {
+  content: "\ea83";
+}
+.icon-mail2:before {
+  content: "\ea84";
+}
+.icon-mail4:before {
+  content: "\ea86";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-facebook2:before {
+  content: "\ea91";
+}
+
+
+.icon_menu {
+    width: 2.2rem; /*60px*/
+    height: 2.2rem; /*60px */
+    display:flex;
+    align-items: center;
+    padding: 0.2rem;
+    margin: 0.5rem 0 0.5rem 0;
+    margin-right: 0.3rem;
+    cursor: pointer;
+ }
+
+
+
+.icon_menu_content, .icon_menu_content:before, .icon_menu_content:after
+   {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0.2rem; 
+      border-radius: 5px;
+      background: rgb(80, 63, 146);
+      position: relative;
+   }
+
+   .icon_menu_content:before 
+   {
+      top: -0.6rem;
+   }
+
+   .icon_menu_content:after 
+   {
+      top: 0.4rem;
+   }
+
