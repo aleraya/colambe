@@ -347,8 +347,7 @@ template {
   display: none;
 }
 
-/* F7FAFB */
-/* E4E4E4 */
+/*rgba(222, 29, 115, 0.30) remis sans opacité pour gérer menu petite taille */
 .prestation-card, .prestation:hover {
   border-radius: 10px;
   background-color: #F7FAFB;
@@ -503,12 +502,22 @@ button {
     border-radius: 5px;
     background: #503F94;
     position: relative;
+    transition: all 0.5s ease-in-out;
   }
   .l-nav-mobile__icon-menu::before {
     top: -0.6rem;
   }
   .l-nav-mobile__icon-menu::after {
     top: 0.4rem;
+  }
+  .l-nav-mobile.is-open .l-nav-mobile__icon-menu {
+    background-color: transparent;
+  }
+  .l-nav-mobile.is-open .l-nav-mobile__icon-menu::before {
+    transform: translateY(0.6rem) rotateZ(45deg);
+  }
+  .l-nav-mobile.is-open .l-nav-mobile__icon-menu::after {
+    transform: translateY(-0.6rem) rotateZ(-45deg);
   }
 }
 
@@ -520,6 +529,8 @@ button {
 }
 .l-nav__menu {
   position: relative;
+  background-color: #A26DAC;
+  /*Pour que quand on referme menu déroulant en petite taille, le fond reste en violet*/
 }
 .l-nav__menu > a {
   color: #503F94;
@@ -527,7 +538,7 @@ button {
   padding: 1.375rem 0.625rem;
 }
 .l-nav__menu:hover {
-  background-color: rgba(222, 29, 115, 0.3);
+  background-color: #B4559B;
   border-top: 0.3125rem solid #DD1377;
 }
 .l-nav__menu:hover > a {
@@ -566,9 +577,12 @@ button {
     padding-top: 20px;
     padding-left: 0;
     text-align: center;
+    height: 10px;
   }
   .l-nav__menu {
-    display: none;
+    position: relative;
+    top: -600px;
+    transition: transform 1s ease-in-out;
   }
   .l-nav__menu > a {
     padding: 0.625rem 0.625rem;
@@ -592,7 +606,11 @@ button {
     padding: 0.625rem 1.875rem;
   }
   .l-nav.is-open .l-nav__menu {
-    display: block;
+    transform: translateY(600px);
+    background-color: #A26DAC;
+  }
+  .l-nav.is-open .l-nav__menu:hover {
+    background-color: #B4559B;
   }
 }
 

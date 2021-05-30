@@ -25,6 +25,7 @@
          border-radius: 5px;
          background: $color-nav;
          position: relative; 
+         transition : all 0.5s ease-in-out;
       }
 
       &__icon-menu::before {
@@ -35,6 +36,20 @@
          top: 0.4rem;
       }
 
+      &.is-open  &__icon-menu {
+         // opacity: 0; Fait aussi disparaitre le before et after
+         background-color: transparent;
+      }
+
+      &.is-open  &__icon-menu::before {
+         // opacity: 0; Fait aussi disparaitre le before et after
+         transform: translateY(0.6rem) rotateZ(45deg) ;
+      }
+
+      &.is-open  &__icon-menu::after {
+         // opacity: 0; Fait aussi disparaitre le before et after
+         transform: translateY(-0.6rem) rotateZ(-45deg);
+      }
    }
 }
    
@@ -49,6 +64,7 @@
 
    &__menu {
       position: relative;
+      background-color: $background-nav;  /*Pour que quand on referme menu déroulant en petite taille, le fond reste en violet*/
 
       & > a {
          color: $color-nav;
@@ -105,9 +121,13 @@
       padding-top: 20px;
       padding-left: 0;
       text-align: center;
+      height: 10px;
 
       &__menu {
-         display: none;
+         //display: none;
+         position: relative;
+         top: -600px;
+         transition: transform 1s ease-in-out;
 
          & > a {
             padding: rem(10) rem(10);
@@ -139,7 +159,13 @@
       }
       
       &.is-open &__menu {
-         display: block;
+         //display: block;
+         transform: translateY(600px);
+         background-color: $background-nav;
+
+         &:hover {
+            background-color: $background-hover;
+         }
       }
    }
    
