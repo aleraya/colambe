@@ -92,12 +92,17 @@
    @extend %box;
 
    @media #{$large-down} {
-      margin: rem(20) rem(10);
+      margin: rem(20) rem(20);
    }
    @media #{$medium-down} {
       margin: rem(20) auto;
    }
 
+   &--center {
+      @media #{$large-down} {
+         margin: rem(20) auto;
+      }
+   }
 }
 
 

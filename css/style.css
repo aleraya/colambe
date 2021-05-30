@@ -809,11 +809,16 @@ button {
 }
 @media only screen and (max-width: 1000px) {
   .prestation-card {
-    margin: 1.25rem 0.625rem;
+    margin: 1.25rem 1.25rem;
   }
 }
 @media only screen and (max-width: 768px) {
   .prestation-card {
+    margin: 1.25rem auto;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .prestation-card--center {
     margin: 1.25rem auto;
   }
 }
