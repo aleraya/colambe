@@ -564,6 +564,7 @@ button {
     background-color: #A26DAC;
     left: 0;
     padding-top: 20px;
+    padding-left: 0;
     text-align: center;
   }
   .l-nav__menu {
@@ -576,23 +577,22 @@ button {
     padding-top: 0.3125rem;
   }
   .l-nav__menu:hover .l-nav__submenu {
-    right: 0px;
-    left: 50%;
+    display: block;
+    position: static;
+  }
+  .l-nav__submenu {
+    display: block;
+    position: static;
+    padding-left: 0;
+  }
+  .l-nav__submenu li {
+    width: 100%;
   }
   .l-nav__submenu li a {
     padding: 0.625rem 1.875rem;
   }
   .l-nav.is-open .l-nav__menu {
     display: block;
-  }
-}
-@media only screen and (max-width: 564px) {
-  .l-nav__menu .l-nav__submenu {
-    text-align: left;
-    left: 40%;
-  }
-  .l-nav__submenu li a {
-    padding: 0.625rem 0.625rem;
   }
 }
 

@@ -98,11 +98,12 @@
 
    @media #{$large-down} {
       display: block;
-      position: absolute;
+      position: absolute;  //absolute
       width: 100%;
       background-color: $background-nav;
       left: 0;
       padding-top: 20px;
+      padding-left: 0;
       text-align: center;
 
       &__menu {
@@ -119,12 +120,20 @@
             }
 
             .l-nav__submenu {
-               right: 0px;
-               left: 50%;
+               display: block;
+               position: static;
             }
          }
       } 
+      &__submenu {
+         display: block;
+         position: static;
+         padding-left: 0;
 
+         li {
+            width: 100%;
+         }
+      }
       &__submenu li a {
          padding: rem(10) rem(30);
       }
@@ -132,18 +141,6 @@
       &.is-open &__menu {
          display: block;
       }
-   }
-
-   @media #{$small-down} {
-      &__menu .l-nav__submenu {
-         text-align: left;
-         left: 40%;
-      }
-
-      &__submenu li a {
-         padding: rem(10) rem(10);
-      }
-
    }
    
 }
