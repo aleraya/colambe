@@ -48,6 +48,19 @@
 
    }
 
+      
+   @media #{$large-down} {
+      flex-direction: column;
+      align-items: center;
+      
+      &__bloc {
+         width: 80%;
+      }
+
+      &__form {
+         margin-left: 0;
+      }
+   }
 
 }
   

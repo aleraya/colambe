@@ -851,6 +851,18 @@ button {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
 }
+@media only screen and (max-width: 1000px) {
+  .contact {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact__bloc {
+    width: 80%;
+  }
+  .contact__form {
+    margin-left: 0;
+  }
+}
 
 /* =======================
    Module/Price
