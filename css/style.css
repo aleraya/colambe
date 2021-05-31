@@ -874,6 +874,11 @@ button {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
 }
+.contact__form .error {
+  display: inline-block;
+  color: red;
+  margin-bottom: 0.3125rem;
+}
 @media only screen and (max-width: 1000px) {
   .contact {
     flex-direction: column;
