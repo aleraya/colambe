@@ -55,7 +55,7 @@ const sendMail =function () {
         boValid=false;
     } else {
         // Autre test possible : let emailRegexp = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
-        let emailRegexp = new RegExp('^[a-zA-Z0-9.-_]+[@][a-zA-Z0-9.-_]+[.]{1}[a-z]{2, 10}$', 'g');
+        let emailRegexp = new RegExp('^[a-zA-Z0-9.\\-_]+[@][a-zA-Z0-9.\\-_]+[.]{1}[a-z]{2,10}$');
         if (!emailRegexp.test(form.email.value)) {
             writeMessage(form.email, "Email invalide");
             boValid=false;
@@ -78,7 +78,7 @@ const sendMail =function () {
         writeMessage(form.message, "Message obligatoire");
         boValid=false;
     } else if (form.message.value.length < 3) {
-        writeMessage(form.name, "Le message doit avoir au moins 3 caractères");
+        writeMessage(form.message, "Le message doit avoir au moins 3 caractères");
         boValid=false;
     }
 
