@@ -26,11 +26,10 @@ const sendMail =function () {
 
     /* Supprimer les éventuels messages d'erreur des précédents passages */
     for(span of spans) {
-        console.log(span);
-        console.log(form);
         span.parentNode.removeChild(span);
     }    
     
+
 
     /* Tester les donnees */
     /* (form.name.value) equivalent à document.getElementById("name").value); */
@@ -45,7 +44,7 @@ const sendMail =function () {
     if (form.firstName.value.trim().length==0) {
         writeMessage(form.firstName, "Prénom obligatoire");
         boValid=false;
-    } else if (form.firstName.value.trim().length < 2 || form.firsName.value.trim().length > 30 ) {
+    } else if (form.firstName.value.trim().length < 2 || form.firstName.value.trim().length > 30 ) {
         writeMessage(form.firstName, "Le prénom doit avoir entre 2 et 30 caractères");
         boValid=false;
     }
