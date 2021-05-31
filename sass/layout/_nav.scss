@@ -131,6 +131,7 @@
 
          & > a {
             padding: rem(10) rem(10);
+            width: 100%;
           }    
 
           &:hover {
@@ -156,6 +157,7 @@
       }
       &__submenu li a {
          padding: rem(10) rem(30);
+         width: 100%
       }
       
       &.is-open &__menu {

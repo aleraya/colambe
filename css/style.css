@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /*
 * Prefixed by https://autoprefixer.github.io
 * PostCSS: v7.0.29,
@@ -627,6 +626,7 @@ button {
   }
   .l-nav__menu > a {
     padding: 0.625rem 0.625rem;
+    width: 100%;
   }
   .l-nav__menu:hover > a {
     padding-top: 0.3125rem;
@@ -645,6 +645,7 @@ button {
   }
   .l-nav__submenu li a {
     padding: 0.625rem 1.875rem;
+    width: 100%;
   }
   .l-nav.is-open .l-nav__menu {
     -webkit-transform: translateY(600px);
