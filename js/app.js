@@ -34,50 +34,49 @@ const sendMail =function () {
 
     /* Tester les donnees */
     /* (form.name.value) equivalent à document.getElementById("name").value); */
-    if (form.name.value.length==0) {
+    if (form.name.value.trim().length==0) {
         writeMessage(form.name, "Nom obligatoire");
         boValid=false;
-    } else if (form.name.value.length < 2 && form.name.value.length > 30 ) {
+    } else if (form.name.value.trim().length < 2 || form.name.value.trim().length > 30 ) {
         writeMessage(form.name, "Le nom doit avoir entre 2 et 30 caractères");
         boValid=false;
     }
 
-    if (form.firstName.value.length==0) {
+    if (form.firstName.value.trim().length==0) {
         writeMessage(form.firstName, "Prénom obligatoire");
         boValid=false;
-    } else if (form.firstName.value.length < 2 && form.firsName.value.length > 30 ) {
-        writeMessage(form.name, "Le prénom doit avoir entre 2 et 30 caractères");
+    } else if (form.firstName.value.trim().length < 2 || form.firsName.value.trim().length > 30 ) {
+        writeMessage(form.firstName, "Le prénom doit avoir entre 2 et 30 caractères");
         boValid=false;
     }
 
-    if (form.email.value.length==0) {
+    if (form.email.value.trim().length==0) {
         writeMessage(form.email, "Email obligatoire");
         boValid=false;
     } else {
         // Autre test possible : let emailRegexp = new RegExp(/^([\w-\.]+)@((?:[\w]+\.)+)([a-zA-Z]{2,4})/i);
         let emailRegexp = new RegExp('^[a-zA-Z0-9.\\-_]+[@][a-zA-Z0-9.\\-_]+[.]{1}[a-z]{2,10}$');
-        if (!emailRegexp.test(form.email.value)) {
+        if (!emailRegexp.test(form.email.value.trim())) {
             writeMessage(form.email, "Email invalide");
             boValid=false;
         }
     }
 
-    if (form.tel.value.length==0) {
+    if (form.tel.value.trim().length==0) {
         writeMessage(form.tel, "Téléphone obligatoire");
         boValid=false;
     } else {
         let telRegexp = new RegExp('^(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$');
-        console.log(!telRegexp.test(form.tel.value));
-        if (!telRegexp.test(form.tel.value)) {
+        if (!telRegexp.test(form.tel.value.trim())) {
             writeMessage(form.tel, "N° téléphone invalide");
             boValid=false;
         }
     }
 
-    if (form.message.value.length==0) {
+    if (form.message.value.trim().length==0) {
         writeMessage(form.message, "Message obligatoire");
         boValid=false;
-    } else if (form.message.value.length < 3) {
+    } else if (form.message.value.trim().length < 3) {
         writeMessage(form.message, "Le message doit avoir au moins 3 caractères");
         boValid=false;
     }
@@ -86,11 +85,11 @@ const sendMail =function () {
         /* Encoder l'url mailto */
         var url="mailto:"+encodeURIComponent('anne.leray8@gmail.com')
             +"?subject=" 
-            "Message de : " + encodeURIComponent(form.name.value.value)
-            + " "           + encodeURIComponent(form.firstName.value) 
+            "Message de : " + encodeURIComponent(form.name.value.trim())
+            + " "           + encodeURIComponent(form.firstName.value.trim()) 
             +"&body="+
-            "Message : " + encodeURIComponent(form.message.value)
-            +"; Mail : "    + encodeURIComponent(form.email.value)
+            "Message : " + encodeURIComponent(form.message.value.trim())
+            +"; Mail : "    + encodeURIComponent(form.email.value.trim())
             ;
         /* Ouvrir client messagerie */
         document.location=url;
