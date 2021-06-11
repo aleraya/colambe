@@ -8,6 +8,9 @@ Saisir dans le terminal :
 ./dart-sass/sass sass/style.scss css/style.css --watch
 Modifier les fichiers .scss
 
+NB: Avec réorganisation des fichiers pour bascule php saisir plutôt :
+./dart-sass/sass public/webroot/sass/style.scss public/webroot/css/style.css --watch
+
 Pour en savoir plus sur sass.
 Fichier Excel : D:\Anne\Mes Formations\Entrainements|Essentiel.xlsx
 Onglet Sass.
