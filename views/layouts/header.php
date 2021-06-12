@@ -45,7 +45,7 @@
         </nav>
     </header>
 
-    <div class="l-banner-empty">
+    <div class="<?= $banner ? 'l-banner' : 'l-banner-empty' ?>">
     </div>  
     
     <main class="l-main" >

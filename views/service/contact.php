@@ -19,7 +19,7 @@ require VIEW_PATH. '/layouts/header.php';
         <p class="txtcenter">Massages à domicile (dans un rayon de 30km)</p>
         <p class="txtcenter">Uniquement sur rendez-vous</p>
         <div class="logo-fb">
-            <a href="https://www.facebook.com/colambe" target= '_blank'><img src="../img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
+            <a href="https://www.facebook.com/colambe" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
         </div>
         <table class="contact__table"> 
             <tr>
