@@ -881,11 +881,6 @@ button {
   color: #CF2323;
   margin-bottom: 0.3125rem;
 }
-.contact .valid {
-  display: inline-block;
-  color: #109c10;
-  margin-bottom: 0.3125rem;
-}
 @media only screen and (max-width: 1000px) {
   .contact {
     flex-direction: column;

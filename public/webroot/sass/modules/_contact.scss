@@ -53,8 +53,13 @@
       }
 
    }
-
-      
+   
+   .valid {
+      display: inline-block;
+      color: $color-valid;
+      margin-bottom: rem(5);
+   }
+   
    @media #{$large-down} {
       flex-direction: column;
       align-items: center;

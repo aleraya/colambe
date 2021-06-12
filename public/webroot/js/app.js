@@ -13,10 +13,10 @@ iconMenu.addEventListener('click', (e) =>{
 
 
 
-form.addEventListener('submit', (e) =>{
-    e.preventDefault();
-    sendMail();
-});
+// form.addEventListener('submit', (e) =>{
+//     e.preventDefault();
+//     sendMail();
+// });
 
 
 const sendMail =function () {
@@ -81,17 +81,18 @@ const sendMail =function () {
     }
 
     if (boValid) {
+        document.getElementById("send").submit();
         /* Encoder l'url mailto */
-        var url="mailto:"+encodeURIComponent('anne.leray8@gmail.com')
-            +"?subject=" 
-            "Message de : " + encodeURIComponent(form.name.value.trim())
-            + " "           + encodeURIComponent(form.firstName.value.trim()) 
-            +"&body="+
-            "Message : " + encodeURIComponent(form.message.value.trim())
-            +"; Mail : "    + encodeURIComponent(form.email.value.trim())
-            ;
+        // var url="mailto:"+encod  eURIComponent('anne.leray8@gmail.com')
+        //     +"?subject=" 
+        //     "Message de : " + encodeURIComponent(form.name.value.trim())
+        //     + " "           + encodeURIComponent(form.firstName.value.trim()) 
+        //     +"&body="+
+        //     "Message : " + encodeURIComponent(form.message.value.trim())
+        //     +"; Mail : "    + encodeURIComponent(form.email.value.trim())
+        //     ;
         /* Ouvrir client messagerie */
-        document.location=url;
+        // document.location=url;
     }
 }
 

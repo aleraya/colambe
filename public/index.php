@@ -10,31 +10,35 @@ define('VIEW_PATH', dirname(__DIR__) . '/views');
 // Création des routes
 $router->map('GET', '/', function() {
     require VIEW_PATH . '/service/index.php';
-});
+}, 'index');
 
 $router->map('GET', '/californien', function() {
     require VIEW_PATH . '/service/californien.php';
-});
+}, 'californien');
 
 $router->map('GET', '/contact', function() {
     require VIEW_PATH . '/service/contact.php';
-});
+}, 'contact');
+
+$router->map('POST', '/post_contact', function() {
+    require VIEW_PATH . '/service/post_contact.php';
+}, 'post_contact');
 
 $router->map('GET', '/entreprise', function() {
     require VIEW_PATH . '/service/entreprise.php';
-});
+}, 'entreprise');
 
 $router->map('GET', '/evenementiel', function() {
     require VIEW_PATH . '/service/evenementiel.php';
-});
+}, 'evenementiel');
 
 $router->map('GET', '/massage-5-continents', function() {
     require VIEW_PATH . '/service/massage-5-continents.php';
-});
+}, 'massage5Continents');
 
 $router->map('GET', '/qui-suis-je', function() {
     require VIEW_PATH . '/service/qui-suis-je.php';
-});
+}, 'quiSuisJe');
 
 $router->map('GET', '/shiatsu-sur-chaise', function() {
     require VIEW_PATH . '/service/shiatsu-sur-chaise.php';
@@ -42,7 +46,7 @@ $router->map('GET', '/shiatsu-sur-chaise', function() {
 
 $router->map('GET', '/tarifs', function() {
     require VIEW_PATH . '/service/tarifs.php';
-});
+}, 'shiatsuSurChaise');
 
 // Demande au router si l'url saisie correspond à une des routes
 $match = $router->match();

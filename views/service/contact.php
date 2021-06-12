@@ -1,4 +1,23 @@
 <?php
+session_start();
+
+$success= false;
+if (isset($_SESSION['success'])){
+    $success = $_SESSION['success'];
+    unset($_SESSION['success']);
+}
+
+$errors = [];
+$datas  = [];
+if(array_key_exists('errors', $_SESSION)) {
+    $errors = $_SESSION['errors'];
+    unset($_SESSION['errors']);
+}
+if(array_key_exists('$_POST', $_SESSION)) {
+    $datas = $_SESSION['$_POST'];
+    unset($_SESSION['$_POST']);
+}
+
 $title = "Contact | Colambe";
 require VIEW_PATH. '/layouts/header.php';
 ?>
@@ -59,28 +78,58 @@ require VIEW_PATH. '/layouts/header.php';
 
     <div class="contact__bloc">
         <h2 class="contact__title">Contactez-moi</h2>
-        <form class="contact__form" action="mailto:anne.leray8@gmail.com?subject=Formulaire_d_envoi" name="envoi" method="POST" enctype="text/plain">
+        <div class="contact__form valid">
+            <?php if ($success): ?>
+                Votre message a bien été envoyé.
+            <?php endif; ?>
+        </div>
+        <form class="contact__form" enctype="multipart/form-data" action="post_contact" name="send" id="send" method="POST">
             <div>
                 <label class="contact-label" for="name">Nom <sup>*</sup></label> <br>
-                <input type="text" name="name" id="name" > 
+                <input type="text" name="name" id="name" value="<?=isset($datas['name'])?$datas['name']:null; ?>"> 
+                <?php if(isset($errors['name'])): ?>
+                    <div class="error">
+                        <?= $errors['name'];?>
+                    </div>
+                <?php endif; ?>            
             </div>
             <div>
                 <label  class="contact-label" for="firstName">Prénom <sup>*</sup></label> <br>
-                <input type="text" name="firstName" id="firstName" >    
+                <input type="text" name="firstName" id="firstName" value="<?=isset($datas['firstName'])?$datas['firstName']:null; ?>">    
+                <?php if(isset($errors['firstName'])): ?>
+                    <div class="error">
+                        <?= $errors['firstName'];?>
+                    </div>
+                <?php endif; ?>            
             </div>
             <div>
                 <label  class="contact-label" for="email">E-mail <sup>*</sup></label> <br>
-                <input type="text" name="email" id="email" >    
+                <input type="text" name="email" id="email" value="<?=isset($datas['email'])?$datas['email']:null; ?>">    
+                <?php if(isset($errors['email'])): ?>
+                    <div class="error">
+                        <?= $errors['email'];?>
+                    </div>
+                <?php endif; ?>            
             </div>
             <div>
                 <label  class="contact-label" for="tel">Tél. <sup>*</sup></label> <br>
-                <input type="text" name="tel" id="tel" >    
+                <input type="text" name="tel" id="tel" value="<?=isset($datas['tel'])?$datas['tel']:null; ?>">    
+                <?php if(isset($errors['tel'])): ?>
+                    <div class="error">
+                        <?= $errors['tel'];?>
+                    </div>
+                <?php endif; ?>            
             </div>
             <div>
                 <label  class="contact-label" for="message">Message <sup>*</sup></label> <br>
-                <textarea name="message" id="message" ></textarea>     
+                <textarea name="message" id="message"><?=isset($datas['message'])?$datas['message']:null; ?></textarea>     
+                <?php if(isset($errors['message'])): ?>
+                    <div class="error">
+                        <?= $errors['message'];?>
+                    </div>
+                <?php endif; ?>            
             </div>
-            <button class="boutton" type="submit">Envoyer</button>
+            <button class="boutton" type="submit" >Envoyer</button>
         </form>
     </div>
 
