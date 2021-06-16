@@ -24,6 +24,12 @@ require VIEW_PATH. '/layouts/header.php';
     <h1 class='prestation-title'>Prochains évênements</h1>
     <div class="prestation-card prestation-card--center txtcenter">
         <h3>Aucun évênement prévu actuellement</h3>
+        <h4>Date de l'évènement</h4>
+        <address>Adresse de l'évènement</address>
+        <div class="logo-fb">
+            <a href="https://www.facebook.com/colambe" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
+        </div>
+        <img src="" alt="img">
     </div>
 </article>
 

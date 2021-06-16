@@ -1,5 +1,6 @@
 Pour lancer l'appli : 
 php -S localhost:8000 -t public
+http://localhost:8000/
 
 ===================================
 Projet réalisé à partir de Sass.
