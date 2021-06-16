@@ -1,6 +1,5 @@
 <?php
 $title = "Shiatsu sur chaise | Colambe";
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 <article class='l-main__detail'>
@@ -49,4 +48,3 @@ require VIEW_PATH. '/layouts/header.php';
     </div>
 </article>
 
-<?php require VIEW_PATH. '/layouts/footer.php';?>

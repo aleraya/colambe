@@ -1,6 +1,5 @@
 <?php
 $title = "Tarifs | Colambe";
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 <article class="l-main__detail">
@@ -77,4 +76,3 @@ require VIEW_PATH. '/layouts/header.php';
     </table>
 </article>
 
-<?php require VIEW_PATH. '/layouts/footer.php';?>

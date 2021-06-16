@@ -1,6 +1,5 @@
 <?php
 $title = "Qui suis-je | Colambe";
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 
@@ -66,4 +65,3 @@ require VIEW_PATH. '/layouts/header.php';
     </div>
 </article>
 
-<?php require VIEW_PATH. '/layouts/footer.php'; ?>

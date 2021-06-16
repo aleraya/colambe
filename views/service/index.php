@@ -2,7 +2,6 @@
 $title = "Colambe | Massages bien-être";
 $description = "Shiatsu sur chaise et massage californien proposés à domicile ou en évênementiel (dont entreprise).";
 $banner = true; 
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 <a href="pages/shiatsu-sur-chaise.html">
@@ -51,4 +50,3 @@ require VIEW_PATH. '/layouts/header.php';
     </article>
 </a>
 
-<?php require VIEW_PATH. '/layouts/footer.php'; ?>

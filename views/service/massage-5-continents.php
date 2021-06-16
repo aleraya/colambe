@@ -1,6 +1,5 @@
 <?php
 $title = "Massage des 5 continents | Colambe";
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 <article class='l-main__detail'>
@@ -45,4 +44,3 @@ require VIEW_PATH. '/layouts/header.php';
     </div>
 </article>
 
-<?php require VIEW_PATH. '/layouts/footer.php';?>

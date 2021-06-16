@@ -19,7 +19,6 @@ if(array_key_exists('$_POST', $_SESSION)) {
 }
 
 $title = "Contact | Colambe";
-require VIEW_PATH. '/layouts/header.php';
 ?>
 
 <h1 class='prestation-title'>Contact</h1>
@@ -135,4 +134,3 @@ require VIEW_PATH. '/layouts/header.php';
 
 </div>
 
-<?php require VIEW_PATH. '/layouts/footer.php'; ?>
