@@ -10,7 +10,7 @@
     <link rel="icon" type="image/x-icon" href="webroot/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
-    <title><?=$title ?? 'Colambe' ?></title>
+    <title><?=isset($title) ? htmlentities($title) : 'Colambe' ?></title>
     <link rel="stylesheet" href="webroot/css/style.css">
     <meta name="description" content="Texte décrivant mon activité"> <!--TODO remplacer description-->
 </head>

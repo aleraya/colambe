@@ -1,5 +1,14 @@
 <?php
+
+use App\Connection;
+use App\Table\EventTable;
+
 $title = "Evênementiel | Colambe";
+
+$pdo = Connection::getPDO();
+
+$table = new EventTable($pdo);
+$events = $table->findAll();
 ?>
 
 <article class='l-main__detail'>
@@ -21,14 +30,26 @@ $title = "Evênementiel | Colambe";
 </article>
 <article class='l-main__detail'>
     <h1 class='prestation-title'>Prochains évênements</h1>
-    <div class="prestation-card prestation-card--center txtcenter">
-        <h3>Aucun évênement prévu actuellement</h3>
-        <h4>Date de l'évènement</h4>
-        <address>Adresse de l'évènement</address>
-        <div class="logo-fb">
-            <a href="https://www.facebook.com/colambe" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
+    <?php if (count($events) === 0): ?>
+        <div class="prestation-card prestation-card--center txtcenter">
+            <h3>Aucun évênement prévu actuellement</h3>
         </div>
-        <img src="" alt="img">
-    </div>
+    <?php else: ?>
+        <?php foreach ($events as $event): ?>
+            <div class="prestation-card prestation-card--center txtcenter">
+                <h3><?=htmlentities($event->getName()) ?></h3>
+                <h4><?=htmlentities($event->getDate()) ?></h4>
+                <address><?=htmlentities($event->getPlace()) ?></address>
+                <?php if ($event->getFb_url() !==''): ?>
+                    <div class="logo-fb">
+                        <a href="<?=htmlentities($event->getFb_url())?>" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
+                    </div>
+                <?php endif; ?>
+                <?php if (($event->getUrl())!==null): ?>
+                    <img src="<?=htmlentities($event->getUrl())?>" alt="<?=htmlentities($event->getDescription())?>">
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </article>
 

@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '6d896fb0acc5751599cf3e401112bba50ca5ba23',
+    'reference' => '5dbe544ded38fd46525f575d5683b9f8632b3a0b',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '6d896fb0acc5751599cf3e401112bba50ca5ba23',
+      'reference' => '5dbe544ded38fd46525f575d5683b9f8632b3a0b',
     ),
     'altorouter/altorouter' => 
     array (
@@ -42,6 +42,15 @@ private static $installed = array (
       ),
       'reference' => '127f6e96998708a31ef32252985bea82e3b03888',
     ),
+    'fakerphp/faker' => 
+    array (
+      'pretty_version' => 'v1.14.1',
+      'version' => '1.14.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ed22aee8d17c7b396f74a58b1e7fefa4f90d5ef1',
+    ),
     'filp/whoops' => 
     array (
       'pretty_version' => '2.13.0',
@@ -51,6 +60,15 @@ private static $installed = array (
       ),
       'reference' => '2edbc73a4687d9085c8f20f398eebade844e8424',
     ),
+    'psr/container' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8622567409010282b7aeebe4bb841fe98b58dcaf',
+    ),
     'psr/log' => 
     array (
       'pretty_version' => '1.1.4',
@@ -59,6 +77,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
+    ),
+    'symfony/deprecation-contracts' => 
+    array (
+      'pretty_version' => 'v2.4.0',
+      'version' => '2.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5f38c8804a9e97d23e0c8d63341088cd8a22d627',
     ),
     'symfony/polyfill-mbstring' => 
     array (

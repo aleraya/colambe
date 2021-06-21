@@ -2,7 +2,8 @@
     "require": {
         "altorouter/altorouter": "^2.0",
         "symfony/var-dumper": "^5.3",
-        "filp/whoops": "^2.13"
+        "filp/whoops": "^2.13",
+        "fakerphp/faker": "^1.14"
     },
     "autoload": {
         "psr-4": {

@@ -34,6 +34,19 @@ class Router {
         return $this;
     }
 
+        
+    /**
+     * url
+     *
+     * @param  mixed $name    nom de la root
+     * @param  mixed $params  les paramètres
+     * @return void
+     */
+    public function url(string $name, array $params=[]) 
+    {
+        return $this->router->generate($name, $params);
+    }
+
     public function run(): self
     {
         // Demande au router si l'url saisie correspond à une des routes
@@ -42,6 +55,11 @@ class Router {
 
         // Récupération de la cible le template, la closure, la fonction require et appelle de la fonction par les ()
         $view = $match['target'];
+
+        // Récupération des paramètres
+        $params = $match['params'];
+
+        $router = $this;
 
         ob_start();
         require $this->viewPath .DIRECTORY_SEPARATOR. $view . '.php';
