@@ -5,6 +5,7 @@ use App\Table\EventTable;
 use Valitron\Validator;
 use App\HTML\Form;
 use App\Upload;
+use App\Validators\EventValidator;
 
 $title = "Gestion événement | Colambe";
 
@@ -16,16 +17,8 @@ $success = false;
 $errors = [];
    
 if(!empty($_POST)) {
-    Validator::lang('fr');
-    $v = new Validator($_POST);
-    $v->labels(array(
-        'name' => 'Le champs événement'//,
-        //'email' => 'Email address'
-    ));
-    $v->rule('required', ['name', 'date', 'place']);
-    $v->rule('lengthMin', ['name', 'date', 'place'], 3);
-    //$v->rule('required', ['name', 'email']);
-    //$v->rule('email', 'email');
+    $v = new EventValidator($_POST, $eventTable, $event->getId());
+
     $event->setName($_POST['name']);
     $event->setDate($_POST['date']);
     $event->setPlace($_POST['place']);
