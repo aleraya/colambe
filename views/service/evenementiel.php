@@ -8,7 +8,7 @@ $title = "Evênementiel | Colambe";
 $pdo = Connection::getPDO();
 
 $table = new EventTable($pdo);
-$events = $table->findAll();
+$events = $table->findAllDisplay();
 ?>
 
 <article class='l-main__detail'>
@@ -40,9 +40,9 @@ $events = $table->findAll();
                 <h3><?=htmlentities($event->getName()) ?></h3>
                 <h4><?=htmlentities($event->getDate()) ?></h4>
                 <address><?=htmlentities($event->getPlace()) ?></address>
-                <?php if ($event->getFb_url() !==''): ?>
+                <?php if ($event->getFbUrl() !==''): ?>
                     <div class="logo-fb">
-                        <a href="<?=htmlentities($event->getFb_url())?>" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
+                        <a href="<?=htmlentities($event->getFbUrl())?>" target= '_blank'><img src="webroot/img/facebook.png" alt="Logo facebook" height="32" width="32"></a>                
                     </div>
                 <?php endif; ?>
                 <?php if (($event->getUrl())!==null): ?>

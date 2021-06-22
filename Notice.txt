@@ -31,4 +31,7 @@ https://www.1min30.com/developpement-web/le-css-avec-le-bem-et-smacss-1287459399
 
 ====================================
 
-Dans app.js, partie sendmail non connectée.
+src/Model : contient les tables au format des fichiers améliorés.
+src/Table : contient requête pour gérer table de la base de données
+src/Router.php fonctionne avec public/index.php. C'est le Router qui permet de faire ob_get_clean.
+src/Connection.php : contient l'accès à la base de données, à appeler en faisant : $pdo = Connection::getPDO();

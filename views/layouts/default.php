@@ -7,17 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat&display=swap" rel="stylesheet"> 
     <!-- pour ajouter logo sur onglet des pages avoir image de 16x16 ou 32x32
          si .ico image/x-icon; si .pgn image/pgn-->
-    <link rel="icon" type="image/x-icon" href="webroot/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?=HOST. 'webroot/favicon.ico'?>" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
     <title><?=isset($title) ? htmlentities($title) : 'Colambe' ?></title>
-    <link rel="stylesheet" href="webroot/css/style.css">
+    <link rel="stylesheet" href="<?=HOST. 'webroot/css/style.css'?>">
     <meta name="description" content="Texte décrivant mon activité"> <!--TODO remplacer description-->
 </head>
 <body>
     <header class="l-header"> 
         <div class="l-header__logo">
-            <a href="/"><img src="webroot/img/logo-complet-144-55.png" alt="Logo et baseline Colambe massages bien être" height="55" width="144"></a>
+            <a href="/"><img src="<?=HOST. 'webroot/img/logo-complet-144-55.png'?>" alt="Logo et baseline Colambe massages bien être" height="55" width="144"></a>
         </div>
         <nav class="l-header__nav">
             <div class="l-nav-mobile"><span class=l-nav-mobile__icon-menu></span></div>
@@ -62,7 +62,7 @@
         </div>
         <!--Informations 2ème colonne -->
         <div class="l-footer__adress column">
-            <img src="webroot/img/logo-complet-144-55.png" alt="Logo et baseline Colambe Massages bien-être" height="55" width="144">
+            <img src="<?=HOST. 'webroot/img/logo-complet-144-55.png'?>" alt="Logo et baseline Colambe Massages bien-être" height="55" width="144">
             <address>Anne LERAY <br>80 avenue Ravel <br>44850 LIGNE</address>
         </div>
         <!--Informations 3ème colonne -->
@@ -77,6 +77,6 @@
         </div>
     </footer>
     
-    <script src="webroot/js/app.js"></script>
+    <script src="<?=HOST. 'webroot/js/app.js'?>"></script>
 </body>
 </html>    

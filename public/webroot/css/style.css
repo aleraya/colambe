@@ -427,11 +427,23 @@ input, textarea {
   border-radius: 0.25rem;
 }
 
+input[type=checkbox] {
+  width: auto;
+  display: inline-block;
+  padding: 0 0;
+  margin: 0 0 1% 0;
+}
+
+:disabled {
+  background-color: #DADADA;
+  border: none;
+}
+
 textarea {
   height: 4em;
 }
 
-button {
+button, .button {
   display: inline-block;
   white-space: nowrap;
   vertical-align: middle;
@@ -444,10 +456,57 @@ button {
   padding: 0.375em 0.75em;
   line-height: 1.5;
   border-radius: 0.25rem;
-  margin-left: 50%;
-  margin-top: 5%;
-  transform: translateX(-50%);
   cursor: pointer;
+}
+
+table {
+  caption-side: bottom;
+  border-collapse: collapse;
+}
+
+caption {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #6c757d;
+  text-align: left;
+}
+
+th {
+  text-align: inherit;
+  text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+label {
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+.valid {
+  display: inline-block;
+  color: #109c10;
+  margin-bottom: 0.3125rem;
+}
+
+.error {
+  display: inline-block;
+  color: #CF2323;
+  margin-bottom: 0.3125rem;
+}
+
+.noDisplay {
+  display: none;
 }
 
 /* =======================
@@ -871,15 +930,15 @@ button {
 .contact__form {
   margin-left: 10%;
 }
-.contact__form .contact-label {
-  letter-spacing: 1px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1rem;
-}
 .contact__form .error {
   display: inline-block;
   color: #CF2323;
   margin-bottom: 0.3125rem;
+}
+.contact__form button {
+  margin-top: 5%;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 .contact .valid {
   display: inline-block;
@@ -919,6 +978,62 @@ button {
   border: 1px solid #bebebe;
   padding: 10px;
   font-family: "Montserrat", sans-serif;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #2C2C2C;
+  vertical-align: top;
+  border-color: #503F94;
+}
+.table > :not(caption) > * > * {
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px transparent;
+}
+.table > tbody {
+  vertical-align: inherit;
+}
+.table > thead {
+  vertical-align: bottom;
+}
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: currentColor;
+}
+
+.caption-top {
+  caption-side: top;
+}
+
+.table-sm > :not(caption) > * > * {
+  padding: 0.25rem 0.25rem;
+}
+
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
+}
+.table-bordered > :not(caption) > * > * {
+  border-width: 0 1px;
+}
+
+.table-borderless > :not(caption) > * > * {
+  border-bottom-width: 0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.05);
+  color: #212529;
+}
+
+.table-active {
+  color: #212529;
+}
+
+.table-hover > tbody > tr:hover {
+  color: #212529;
 }
 
 /*# sourceMappingURL=style.css.map */

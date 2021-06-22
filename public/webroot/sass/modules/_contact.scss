@@ -40,16 +40,16 @@
    &__form {
       margin-left: 10%;
       
-      .contact-label {
-         letter-spacing: 1px;
-         font-family: $font-secondary; 
-         font-size: 1rem;   
-      }
-
       .error {
          display: inline-block;
          color: $color-error;
          margin-bottom: rem(5);
+      }
+
+      button {
+         margin-top: 5%;
+         margin-left: 50%; 
+         transform: translateX(-50%);    
       }
 
    }

@@ -367,7 +367,7 @@ for ($i=1; $i<=3; $i++) {
                     date = '{$faker->date('d/m/Y')}', 
                     place = '{$faker->departmentName()}',
                     fb_url = 'https://www.facebook.com/events/283385240174592/?acontext=%7B%22event_action_history%22%3A[%7B%22mechanism%22%3A%22discovery_top_tab%22%2C%22surface%22%3A%22bookmark%22%7D]%7D',
-                    picture_id = {$i},
+                    picture = '',
                     order_nb = {$i}-1
                     ");
 }

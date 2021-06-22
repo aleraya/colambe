@@ -5,8 +5,12 @@ use App\Router;
 require '../vendor/autoload.php';
 
 // $router = new AltoRouter();
-
+define('DS', DIRECTORY_SEPARATOR);
 define('VIEW_PATH', dirname(__DIR__) . '/views');
+define('HOST', 'http://'.$_SERVER['HTTP_HOST'].'/');
+define('EVENT_PATH', $_SERVER['DOCUMENT_ROOT'].  '/webroot/img/event/');   //C:...
+define('EVENT_HOST', HOST.  '/webroot/img/event/');                        //http://...
+
 
 /** A METTRE EN COMMENTAIRES POUR LA PROD PERMET D'AFFICHER ERREURS DANS UN FORMAT DETAILLE EN CAS DE PLANTAGE */
 $whoops = new \Whoops\Run;
@@ -33,6 +37,12 @@ $router
     ->get('/qui-suis-je', 'service/qui-suis-je', 'quiSuisJe')
     ->get('/shiatsu-sur-chaise', 'service/shiatsu-sur-chaise', 'shiatsuSurChaise')
     ->get('/tarifs', '/service/tarifs', 'price')
+    
+    ->get('/admin', 'admin/event/index', 'admin_events')
+    ->match('/admin/event/[i:id]', 'admin/event/edit', 'admin_event')
+    ->post('/admin/event/[i:id]/delete', 'admin/event/delete', 'admin_event_delete')
+    ->get('/admin/event/new', 'admin/event/new', 'admin_event_new')
+
 
     ->run();
 

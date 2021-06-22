@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '5dbe544ded38fd46525f575d5683b9f8632b3a0b',
+    'reference' => 'ef0249f273db20c670341a24150f4f30e7a507da',
     'name' => '__root__',
   ),
   'versions' => 
@@ -31,7 +31,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '5dbe544ded38fd46525f575d5683b9f8632b3a0b',
+      'reference' => 'ef0249f273db20c670341a24150f4f30e7a507da',
     ),
     'altorouter/altorouter' => 
     array (
@@ -113,6 +113,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '1d3953e627fe4b5f6df503f356b6545ada6351f3',
+    ),
+    'vlucas/valitron' => 
+    array (
+      'pretty_version' => 'v1.4.9',
+      'version' => '1.4.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '81515dcc951e1f636a1a18ece2f4154dfa123438',
     ),
   ),
 );

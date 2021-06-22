@@ -128,7 +128,7 @@ $title = "Contact | Colambe";
                     </div>
                 <?php endif; ?>            
             </div>
-            <button class="boutton" type="submit" >Envoyer</button>
+            <button type="submit" >Envoyer</button>
         </form>
     </div>
 

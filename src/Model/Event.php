@@ -9,14 +9,13 @@ class Event {
     private $date;
     private $place;
     private $fb_url;
-    private $order_nb;
-    private $url;
-    private $description;
+    private $order_nb;    
+    private $picture;
 
     /**
      * Get the value of id
      */ 
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -26,7 +25,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setId($id)
+    public function setId(int $id): self
     {
         $this->id = $id;
 
@@ -36,7 +35,7 @@ class Event {
     /**
      * Get the value of name
      */ 
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -46,7 +45,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -56,7 +55,7 @@ class Event {
     /**
      * Get the value of date
      */ 
-    public function getDate()
+    public function getDate(): ?string
     {
         return $this->date;
     }
@@ -66,7 +65,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setDate($date)
+    public function setDate(string $date): self
     {
         $this->date = $date;
 
@@ -76,7 +75,7 @@ class Event {
     /**
      * Get the value of place
      */ 
-    public function getPlace()
+    public function getPlace(): ?string
     {
         return $this->place;
     }
@@ -86,7 +85,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setPlace($place)
+    public function setPlace(string $place): self
     {
         $this->place = $place;
 
@@ -96,7 +95,7 @@ class Event {
     /**
      * Get the value of fb_url
      */ 
-    public function getFb_url()
+    public function getFbUrl(): ?string
     {
         return $this->fb_url;
     }
@@ -106,7 +105,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setFb_url($fb_url)
+    public function setFbUrl(string $fb_url): self
     {
         $this->fb_url = $fb_url;
 
@@ -116,7 +115,7 @@ class Event {
     /**
      * Get the value of order_nb
      */ 
-    public function getOrder_nb()
+    public function getOrderNb(): ?int
     {
         return $this->order_nb;
     }
@@ -126,7 +125,7 @@ class Event {
      *
      * @return  self
      */ 
-    public function setOrder_nb($order_nb)
+    public function setOrderNb(int $order_nb): self
     {
         $this->order_nb = $order_nb;
 
@@ -134,42 +133,26 @@ class Event {
     }
 
     /**
-     * Get the value of url
+     * Get the value of picture
      */ 
-    public function getUrl()
+    public function getPicture(): ?string
     {
-        return $this->url;
+        return $this->picture;
     }
 
     /**
-     * Set the value of url
+     * Set the value of picture
      *
      * @return  self
      */ 
-    public function setUrl($url)
+    public function setPicture(string $picture): self
     {
-        $this->url = $url;
+        $this->picture = $picture;
 
         return $this;
     }
 
-    /**
-     * Get the value of description
-     */ 
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set the value of description
-     *
-     * @return  self
-     */ 
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
+    public function getThumb() {
+        return EVENT_HOST.$this->picture;
     }
 }
