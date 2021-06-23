@@ -2,8 +2,8 @@
 
 use App\Connection;
 use App\Table\EventTable;
-use Valitron\Validator;
 use App\HTML\Form;
+use App\ObjectHelper;
 use App\Upload;
 use App\Validators\EventValidator;
 
@@ -12,20 +12,14 @@ $title = "Gestion événement | Colambe";
 $pdo = Connection::getPDO();
 $eventTable = new EventTable($pdo);
 $event = $eventTable->find($params['id']);
-$success = false;
 
 $errors = [];
    
 if(!empty($_POST)) {
     $v = new EventValidator($_POST, $eventTable, $event->getId());
-
-    $event->setName($_POST['name']);
-    $event->setDate($_POST['date']);
-    $event->setPlace($_POST['place']);
-    $event->setFbUrl($_POST['fb_url']);
-    $event->setOrderNb($_POST['order_nb']);
+    ObjectHelper::hydrate($event, $_POST, ['name', 'date', 'place', 'fb_url', 'order_nb']);
     $validation = $v->validate();
-
+    
     if (isset($_POST['delete'])) {
         $event->setPicture('');
     }
@@ -47,7 +41,11 @@ if(!empty($_POST)) {
 
     if ($validation) {
         $eventTable->update($event);
-        $success = true;
+        if ($_FILES['img']['error'] === UPLOAD_ERR_NO_FILE && isset($_POST['delete']) && isset($_POST['picture'])) {
+            $uploader = new Upload(EVENT_PATH);
+            $uploader->delete($_POST['picture']);
+        }
+        header("Location:" . $router->url('admin_events') .'?update=1');
     } else {
         $errors = array_merge($v->errors(), $errors);
     }
@@ -57,22 +55,10 @@ $form = new Form($event, $errors);
 ?>
 <article class='l-main__detail'>
     <h1 class='prestation-title'>Gestion de l'événement <?= htmlentities($event->getName())?></h1>  
-    <?php if($success): ?>
-        <div class="valid">L'événement a bien été modifié</div>
-    <?php endif; ?>
     <?php if(!empty($errors)): ?>
-        <div class="error">L'article n'a pas pu être modifié</div>
+        <div class="error">L'événement n'a pas pu être modifié</div>
     <?php endif ?>
 
+    <?php require('_form.php') ?>
 
-    <form action="" method='post' enctype="multipart/form-data">
-        <?= $form->input('name', 'Evénement', true); ?>
-        <?= $form->input('date', 'Date de l\'événement', true); ?>
-        <?= $form->input('place', 'Lieu de l\'événement', true); ?>
-        <?= $form->input('fb_url', 'Lien facebook'); ?>
-        <?= $form->file('img', 'Nouvelle photo', false, 'picture', 'Photo de l\'événement'); ?> 
-        <?= $form->input('order_nb', 'N°ordre d\'affichage'); ?>
-
-        <button>Modifier</button>
-    </form>
 </article>

@@ -12,13 +12,16 @@ class EventValidator extends AbstractValidator {
         $this->validator->labels(array(
             'name' => 'L\'événement',
             'date' => 'La date',
-            'place' => 'Le lieu'
+            'place' => 'Le lieu',
+            'order_nb' => 'Le n° d\'ordre'
         ));
         $this->validator->rule('required', ['name', 'date', 'place']);
         $this->validator->rule('lengthMin', ['name', 'date', 'place'], 3);
-        $this->validator->rule(function ($field, $value) use ($table, $eventId) {
+        $this->validator->rule('integer', 'order_nb');
+        $this->validator->rule('min', 'order_nb', 0);
+        /* $this->validator->rule(function ($field, $value) use ($table, $eventId) {
             return !$table->exists($field, $value, $eventId);
-        }, 'name', 'existe déjà');
+        }, 'name', 'existe déjà'); */
     }
 
 }

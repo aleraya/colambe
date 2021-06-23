@@ -33,10 +33,10 @@
                         <!-- <li><a href="massage-5-continents.html">Massage des 5 continents</a></li>    -->
                     </ul>
                 </li>
-                <li class="l-nav__menu"><a href="#">Evênementiel</a>
+                <li class="l-nav__menu"><a href="#">Evénementiel</a>
                     <ul class="l-nav__submenu">
                         <li><a href="/entreprise">Massage en entreprise</a></li>   
-                        <li><a href="/evenementiel">Autre évênementiel</a></li>
+                        <li><a href="/evenementiel">Autre événementiel</a></li>
                     </ul>
                 </li>
                 <li class="l-nav__menu"><a href="/tarifs">Tarifs</a></li>

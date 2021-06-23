@@ -51,5 +51,23 @@ final class EventTable extends Table {
             throw new Exception("Mise à jour impossible de l'enregistrement {$event->getId()} de la table {$this->table}");
         }
     }
-    
+
+    public function create(Event $event): void
+    {
+        $query = $this->pdo->prepare("INSERT INTO {$this->table} 
+                                        SET name = :name, date = :date, place = :place, fb_url = :fb_url, picture = :picture, order_nb = :order_nb ");
+        $ok = $query->execute([
+            'name' => $event->getName(),
+            'date' => $event->getDate(),
+            'place' => $event->getPlace(),
+            'fb_url' => $event->getFbUrl(),
+            'picture' => $event->getPicture(),
+            'order_nb' => $event->getOrderNb()
+        ]);
+        if ($ok === false) {
+            throw new Exception("Création impossible de l'enregistrement dans la table {$this->table}");
+        }
+        $event->setId($this->pdo->lastInsertId());
+    }
+
 }

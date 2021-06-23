@@ -50,6 +50,16 @@ class Upload {
         return $fileName;
     }
 
+    public function delete(?string $file): void
+    {
+        if ($file) {
+            $file = $this->path . $file;
+            if (file_exists($file)) {
+                unlink($file);
+            }    
+        }
+    }
+
     private function addSuffix(string $path): string
     {
         if (file_exists($path)) {
@@ -58,16 +68,6 @@ class Upload {
             return $this->addSuffix($path);
         }
         return $path;
-    }
-
-    private function delete(?string $file): void
-    {
-        if ($file) {
-            $file = $this->path . $file;
-            if (file_exists($file)) {
-                unlink($file);
-            }    
-        }
     }
 
 }

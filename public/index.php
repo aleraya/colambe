@@ -41,7 +41,7 @@ $router
     ->get('/admin', 'admin/event/index', 'admin_events')
     ->match('/admin/event/[i:id]', 'admin/event/edit', 'admin_event')
     ->post('/admin/event/[i:id]/delete', 'admin/event/delete', 'admin_event_delete')
-    ->get('/admin/event/new', 'admin/event/new', 'admin_event_new')
+    ->match('/admin/event/new', 'admin/event/new', 'admin_event_new')
 
 
     ->run();

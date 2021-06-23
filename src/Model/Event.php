@@ -117,7 +117,7 @@ class Event {
      */ 
     public function getOrderNb(): ?int
     {
-        return $this->order_nb;
+        return (int)$this->order_nb;
     }
 
     /**

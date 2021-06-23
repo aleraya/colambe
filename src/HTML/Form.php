@@ -16,6 +16,7 @@ class Form {
     public function input(string $key, string $label, bool $required=false): string
     {
         $value = $this->getValue($key);
+        
         $sup = '';
         if ($required) {
             $sup = '<sup>*</sup>';
@@ -63,14 +64,14 @@ class Form {
         $checkbox = '';
         if ($required) {
             $sup = '<sup>*</sup>';
-        } elseif ($valueOld !=='') {
+        } elseif (isset($valueOld) && $valueOld !=='') {
             $checkbox = <<<HTML
             <input type="checkbox" id="delete" name="delete">
             <label for="delete">Supprimer l'image</label>
             HTML;
         }
         $inputOld = '';
-        if ($keyOld && $valueOld !=='') {
+        if ($keyOld && isset($valueOld) && $valueOld !=='') {
             $inputOld = <<<HTML
             <div>
                 <label>{$labelOld}</label>
@@ -92,7 +93,7 @@ class Form {
         HTML;
     }
 
-    private function getValue(string $key)
+    private function getValue(string $key): ?string
     {
         if (is_array($this->data)){             //tableau
             return $this->data[$key] ?? null;
