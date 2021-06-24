@@ -1,13 +1,5 @@
 <?php
-
-use App\HTML\Form;
-use App\Model\Contact;
-use App\ObjectHelper;
-
 session_start();
-
-$title = "Contact | Colambe";
-
 
 $success= false;
 if (isset($_SESSION['success'])){
@@ -16,18 +8,17 @@ if (isset($_SESSION['success'])){
 }
 
 $errors = [];
-$contact = new Contact();
-
+$datas  = [];
 if(array_key_exists('errors', $_SESSION)) {
     $errors = $_SESSION['errors'];
     unset($_SESSION['errors']);
 }
 if(array_key_exists('$_POST', $_SESSION)) {
-    ObjectHelper::hydrate($contact, $_SESSION['$_POST'], ['name', 'firstName', 'email', 'tel', 'message']);
+    $datas = $_SESSION['$_POST'];
     unset($_SESSION['$_POST']);
 }
 
-$form = new Form($contact, $errors, false);
+$title = "Contact | Colambe";
 ?>
 
 <h1 class='prestation-title'>Contact</h1>
@@ -92,11 +83,51 @@ $form = new Form($contact, $errors, false);
             <?php endif; ?>
         </div>
         <form class="contact__form" enctype="multipart/form-data" action="post_contact" name="send" id="send" method="POST">
-            <?= $form->input('name', 'Nom', true);?>
-            <?= $form->input('firstName', 'Prénom', true);?>
-            <?= $form->input('email', 'E-mail', true);?>
-            <?= $form->input('tel', 'Tél.', true);?>
-            <?= $form->textarea('message', 'Message', true);?>
+            <div>
+                <label class="contact-label" for="name">Nom <sup>*</sup></label> <br>
+                <input type="text" name="name" id="name" value="<?=isset($datas['name'])?$datas['name']:null; ?>"> 
+                <?php if(isset($errors['name'])): ?>
+                    <div class="error">
+                        <?= $errors['name'];?>
+                    </div>
+                <?php endif; ?>            
+            </div>
+            <div>
+                <label  class="contact-label" for="firstName">Prénom <sup>*</sup></label> <br>
+                <input type="text" name="firstName" id="firstName" value="<?=isset($datas['firstName'])?$datas['firstName']:null; ?>">    
+                <?php if(isset($errors['firstName'])): ?>
+                    <div class="error">
+                        <?= $errors['firstName'];?>
+                    </div>
+                <?php endif; ?>            
+            </div>
+            <div>
+                <label  class="contact-label" for="email">E-mail <sup>*</sup></label> <br>
+                <input type="text" name="email" id="email" value="<?=isset($datas['email'])?$datas['email']:null; ?>">    
+                <?php if(isset($errors['email'])): ?>
+                    <div class="error">
+                        <?= $errors['email'];?>
+                    </div>
+                <?php endif; ?>            
+            </div>
+            <div>
+                <label  class="contact-label" for="tel">Tél. <sup>*</sup></label> <br>
+                <input type="text" name="tel" id="tel" value="<?=isset($datas['tel'])?$datas['tel']:null; ?>">    
+                <?php if(isset($errors['tel'])): ?>
+                    <div class="error">
+                        <?= $errors['tel'];?>
+                    </div>
+                <?php endif; ?>            
+            </div>
+            <div>
+                <label  class="contact-label" for="message">Message <sup>*</sup></label> <br>
+                <textarea name="message" id="message"><?=isset($datas['message'])?$datas['message']:null; ?></textarea>     
+                <?php if(isset($errors['message'])): ?>
+                    <div class="error">
+                        <?= $errors['message'];?>
+                    </div>
+                <?php endif; ?>            
+            </div>
             <button type="submit" >Envoyer</button>
         </form>
     </div>

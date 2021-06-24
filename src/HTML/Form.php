@@ -6,11 +6,14 @@ class Form {
 
     private $data;
     private $errors;
+    private $isAdmin;  //En administrateur on affiche toutes les anomalies d'un coup
+                       //Sinon on affiche la 1ère anomalie de chaque zone
 
-    public function __construct($data, array $errors)
+    public function __construct($data, array $errors, bool $isAdmin=true)
     {
         $this->data = $data;
         $this->errors = $errors;
+        $this->isAdmin = $isAdmin;
     }
     
     public function input(string $key, string $label, bool $required=false): string
@@ -40,7 +43,7 @@ class Form {
         return <<<HTML
         <div>
             <label for="field{$key}">{$label} {$sup}</label>
-            <textarea type="text" id="field{$key}" name="{$key}"> {$value} </textarea>
+            <textarea type="text" id="field{$key}" name="{$key}">{$value}</textarea>
             {$this->getError($key)}
         </div>
         HTML;
@@ -112,7 +115,11 @@ class Form {
     {
         $error='';
         if (isset($this->errors[$key])) {
-            $error = '<div class="error">' . implode('<br>', $this->errors[$key]) . '</div>';
+            if ($this->isAdmin) {
+                $error = '<div class="error">' . implode('<br>', $this->errors[$key]) . '</div>';
+            } else {
+                $error = '<div class="error">' . $this->errors[$key][0] . '</div>';
+            }
         }
         return $error;
     }

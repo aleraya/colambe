@@ -7,7 +7,6 @@ use App\Table\EventTable;
 Auth::check();
 
 $title = "Administration événements | Colambe";
-
 $pdo = Connection::getPDO();
 
 $table = new EventTable($pdo);
