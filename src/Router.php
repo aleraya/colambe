@@ -3,6 +3,8 @@
 namespace App;
 
 use AltoRouter;
+use App\Security\ForbiddenException;
+use Exception;
 
 class Router {
     
@@ -59,21 +61,29 @@ class Router {
         // Renvoit tableau associatif comportant les correspondances
         $match = $this->router->match();
 
-        // Récupération de la cible le template, la closure, la fonction require et appelle de la fonction par les ()
-        $view = $match['target'];
-
-        // Récupération des paramètres
-        $params = $match['params'];
+        try {
+            // Récupération de la cible le template, la closure, la fonction require et appelle de la fonction par les ()
+            $view = $match['target'];
+            // Récupération des paramètres
+            $params = $match['params'];
+        } catch (Exception $e) {
+            $view = 'e404';
+        }
 
         $router = $this;
 
         $isAdmin = strpos($view, 'admin/') !==false;
         $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
 
-        ob_start();
-        require $this->viewPath .DIRECTORY_SEPARATOR. $view . '.php';
-        $content = ob_get_clean();
-        require $this->viewPath . DIRECTORY_SEPARATOR . $layout . '.php';
+        try {
+            ob_start();
+            require $this->viewPath .DIRECTORY_SEPARATOR. $view . '.php';
+            $content = ob_get_clean();
+            require $this->viewPath . DIRECTORY_SEPARATOR . $layout . '.php';
+        } catch (ForbiddenException $e) {
+            header("Location:" . $router->url('login'). '?forbidden=1');
+            exit();
+        }
 
         return $this;
     }

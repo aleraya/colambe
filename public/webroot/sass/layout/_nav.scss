@@ -66,7 +66,7 @@
       position: relative;
       background-color: $background-nav;  /*Pour que quand on referme menu déroulant en petite taille, le fond reste en violet*/
 
-      & > a {
+      & > a, & .a {
          color: $color-nav;
          font-size: rem(20);
          padding: rem(22) rem(10);
@@ -76,7 +76,7 @@
          background-color: $background-hover;
          border-top: rem(5) solid $background-title;
    
-         & > a {
+         & > a, & .a {
             padding-top: rem(17);
          }
    

@@ -1,6 +1,8 @@
 Pour lancer l'appli : 
 php -S localhost:8000 -t public
 http://localhost:8000/
+http://localhost:8000/login
+http://localhost:8000/admin
 
 ===================================
 Projet réalisé à partir de Sass.

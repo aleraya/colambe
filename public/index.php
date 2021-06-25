@@ -39,6 +39,7 @@ $router
     ->get('/tarifs', '/service/tarifs', 'price')
 
     ->match('/login', 'auth/login', 'login')
+    ->post('/logout', 'auth/logout', 'logout')
     
     ->get('/admin', 'admin/event/index', 'admin_events')
     ->match('/admin/event/[i:id]', 'admin/event/edit', 'admin_event')

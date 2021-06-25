@@ -2,15 +2,17 @@
 
 namespace App;
 
-use Exception;
+use App\Security\ForbiddenException;
 
 class Auth {
 
     public static function check() 
     {
-        /* if (!isset($_GET['admin'])) {
-            throw new Exception('Accès interdit');
-        } */
-        //TODO : écrire le code
+        if (session_status() === PHP_SESSION_NONE ) {
+            session_start();
+        }
+        if (!isset($_SESSION['auth'])) {
+            throw new ForbiddenException();
+        } 
     }
 }

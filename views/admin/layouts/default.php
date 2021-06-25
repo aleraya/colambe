@@ -26,8 +26,13 @@
             <ul class = "l-nav">
                 <!-- <li class="l-nav__menu"><a href="/admin">Evénements</a></li> -->
                 <li class="l-nav__menu"><a href="<?php $router->url('admin_events')?>">Evénements</a></li>
+                <li class="l-nav__menu">
+                    <form action="/logout" method = "post" style = "display:inline">
+                        <button class="a" type="submit">Se déconnecter</button>
+                    </form>
+                </li>
             </ul>
-        </nav>
+        </nav>  
     </header>
 
     <div class="<?= isset($banner) ? 'l-banner' : 'l-banner-empty' ?>">

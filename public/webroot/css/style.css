@@ -509,6 +509,11 @@ label {
   display: none;
 }
 
+.a {
+  background: transparent;
+  border: none;
+}
+
 /* =======================
    LAYOUT
    ======================= */
@@ -591,7 +596,7 @@ label {
   background-color: #A26DAC;
   /*Pour que quand on referme menu déroulant en petite taille, le fond reste en violet*/
 }
-.l-nav__menu > a {
+.l-nav__menu > a, .l-nav__menu .a {
   color: #503F94;
   font-size: 1.25rem;
   padding: 1.375rem 0.625rem;
@@ -600,7 +605,7 @@ label {
   background-color: #B4559B;
   border-top: 0.3125rem solid #DD1377;
 }
-.l-nav__menu:hover > a {
+.l-nav__menu:hover > a, .l-nav__menu:hover .a {
   padding-top: 1.0625rem;
 }
 .l-nav__menu:hover .l-nav__submenu {
