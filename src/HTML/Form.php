@@ -19,6 +19,8 @@ class Form {
     public function input(string $key, string $label, bool $required=false): string
     {
         $value = $this->getValue($key);
+
+        $type = $key === 'password' ? 'password' : 'text';
         
         $sup = '';
         if ($required) {
@@ -27,7 +29,7 @@ class Form {
         return <<<HTML
         <div>
             <label for="field{$key}">{$label} {$sup}</label>
-            <input type="text" id="field{$key}" name="{$key}" value="{$value}">
+            <input type="{$type}" id="field{$key}" name="{$key}" value="{$value}">
             {$this->getError($key)}
         </div>
         HTML;
@@ -115,13 +117,16 @@ class Form {
     {
         $error='';
         if (isset($this->errors[$key])) {
-            if ($this->isAdmin) {
-                $error = '<div class="error">' . implode('<br>', $this->errors[$key]) . '</div>';
+            if (is_array($this->errors[$key])) {
+                if ($this->isAdmin) {
+                    $error = implode('<br>', $this->errors[$key]);
+                } else {
+                    $error = $this->errors[$key][0];
+                }
             } else {
-                $error = '<div class="error">' . $this->errors[$key][0] . '</div>';
+                $error = $this->errors[$key];
             }
         }
-        return $error;
+        return '<div class="error">' . $error . '</div>';
     }
 }
-

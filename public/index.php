@@ -37,6 +37,8 @@ $router
     ->get('/qui-suis-je', 'service/qui-suis-je', 'quiSuisJe')
     ->get('/shiatsu-sur-chaise', 'service/shiatsu-sur-chaise', 'shiatsuSurChaise')
     ->get('/tarifs', '/service/tarifs', 'price')
+
+    ->match('/login', 'auth/login', 'login')
     
     ->get('/admin', 'admin/event/index', 'admin_events')
     ->match('/admin/event/[i:id]', 'admin/event/edit', 'admin_event')
