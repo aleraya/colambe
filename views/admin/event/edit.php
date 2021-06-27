@@ -2,7 +2,7 @@
 
 use App\Connection;
 use App\Table\EventTable;
-use App\HTML\Form;
+use App\HTML\HTMLForm;
 use App\ObjectHelper;
 use App\Upload;
 use App\Validators\EventValidator;
@@ -51,7 +51,7 @@ if(!empty($_POST)) {
     }
 }
 
-$form = new Form($event, $errors);
+$form = new HTMLForm($event, $errors);
 ?>
 <article class='l-main__detail'>
     <h1 class='prestation-title'>Gestion de l'événement <?= htmlentities($event->getName())?></h1>  

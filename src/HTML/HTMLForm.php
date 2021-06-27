@@ -2,7 +2,7 @@
 
 namespace App\HTML;
 
-class Form {
+class HTMLForm {
 
     private $data;
     private $errors;
@@ -127,6 +127,10 @@ class Form {
                 $error = $this->errors[$key];
             }
         }
-        return '<div class="error">' . $error . '</div>';
+        if ($error==='') {
+            return '';
+        } else {
+            return '<div class="error">' . $error . '</div>';
+        }
     }
 }

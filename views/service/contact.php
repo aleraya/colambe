@@ -1,12 +1,15 @@
 <?php
 
-use App\HTML\Form;
+use App\Connection;
+use App\HTML\HTMLForm;
+use App\HTML\HTMLTable;
 use App\Model\Contact;
 use App\ObjectHelper;
 
 session_start();
 
 $title = "Contact | Colambe";
+$pdo = Connection::getPDO();
 
 
 $success= false;
@@ -27,7 +30,8 @@ if(array_key_exists('$_POST', $_SESSION)) {
     unset($_SESSION['$_POST']);
 }
 
-$form = new Form($contact, $errors, false);
+$form = new HTMLForm($contact, $errors, false);
+$table = new HTMLTable($pdo);
 ?>
 
 <h1 class='prestation-title'>Contact</h1>
@@ -52,36 +56,8 @@ $form = new Form($contact, $errors, false);
             <tr>
                 <td colspan="2"><h2 class="contact__title">Horaires d'ouverture </h2></td>
             </tr>
-            <tr >
-                <td class="contact-td">Lundi</td>
-                <td class="contact-td">8h-19h</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Mardi</td>
-                <td class="contact-td">8h-19h</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Mercredi</td>
-                <td class="contact-td">Fermé</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Jeudi</td>
-                <td class="contact-td">8h-19h</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Vendredi</td>
-                <td class="contact-td">8h-19h</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Samedi</td>
-                <td class="contact-td">8h-19h</td>
-            </tr>
-            <tr>
-                <td class="contact-td">Dimanche</td>
-                <td class="contact-td">Fermé</td>
-            </tr>
+            <?= $table->displayTableSlot()?>
         </table>
-
     </div>
 
     <div class="contact__bloc">

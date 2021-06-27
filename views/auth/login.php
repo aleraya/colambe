@@ -1,7 +1,7 @@
 <?php
 
 use App\Connection;
-use App\HTML\Form;
+use App\HTML\HTMLForm;
 use App\Model\User;
 use App\Table\Exception\NotFoundException;
 use App\Table\UserTable;
@@ -31,7 +31,7 @@ if (!empty($_POST)) {
 }
 
 
-$form = new Form($user, $errors);
+$form = new HTMLForm($user, $errors);
 ?>
 
 <article class='l-main__detail'>
