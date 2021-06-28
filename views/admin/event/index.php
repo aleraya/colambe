@@ -34,7 +34,7 @@ $events = $table->findAll();
             <th>N° ordre</th>
             <th>Nom</th>
             <th>Date</th>
-            <th><a href="<?= $router->url("admin_event_new")?>" class="button">Nouveau</a></th>
+            <th><a href="<?= $router->url("admin_event_new")?>" class="button">Créer</a></th>
         </thead>
         <tbody>
             <?php foreach ($events as $event): ?>

@@ -25,7 +25,8 @@
             <!-- <input type="checkbox" id="menu-mobile" role="button"> -->
             <ul class = "l-nav">
                 <!-- <li class="l-nav__menu"><a href="/admin">Evénements</a></li> -->
-                <li class="l-nav__menu"><a href="<?php $router->url('admin_events')?>">Evénements</a></li>
+                <li class="l-nav__menu"><a href="<?= $router->url('admin_events')?>">Evénements</a></li>
+                <li class="l-nav__menu"><a href="<?= $router->url('admin_tables')?>">Tables</a></li>
                 <li class="l-nav__menu">
                     <form action="/logout" method = "post" style = "display:inline">
                         <button class="a" type="submit">Se déconnecter</button>

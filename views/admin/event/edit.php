@@ -40,12 +40,13 @@ if(!empty($_POST)) {
     }
 
     if ($validation) {
-        $eventTable->update($event);
+        $eventTable->updateEvent($event);
         if ($_FILES['img']['error'] === UPLOAD_ERR_NO_FILE && isset($_POST['delete']) && isset($_POST['picture'])) {
             $uploader = new Upload(EVENT_PATH);
             $uploader->delete($_POST['picture']);
         }
         header("Location:" . $router->url('admin_events') .'?update=1');
+        exit();
     } else {
         $errors = array_merge($v->errors(), $errors);
     }

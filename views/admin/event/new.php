@@ -42,7 +42,7 @@ if(!empty($_POST)) {
     }
 
     if ($validation) {
-        $eventTable->create($event);
+        $eventTable->insertEvent($event);
         header("Location:" . $router->url('admin_events') .'?create=1');
         //header("Location:" . $router->url('admin_event', ['id'=>$event->getId()]) . '?created=1');
         exit();

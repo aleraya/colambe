@@ -15,27 +15,29 @@ final class EventTable extends Table {
     {
         $query = $this->pdo->query("SELECT e.* FROM {$this->table} e
                                     ORDER BY order_nb");
-        return $query->fetchAll(PDO::FETCH_CLASS, Event::class);
+        return $query->fetchAll(PDO::FETCH_CLASS, $this->class);
     }
 
     public function findAllDisplay() 
     {
         $query = $this->pdo->query("SELECT e.* FROM {$this->table} e
                                      WHERE order_nb <> 0 ORDER BY order_nb");
-        return $query->fetchAll(PDO::FETCH_CLASS, Event::class);
-    }
-    public function delete(int $id): void
-    {
-        $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
-        $ok = $query->execute([$id]);
-        if ($ok === false) {
-            throw new Exception("Suppression impossible de l'enregistrement $id de la table {$this->table}");
-        }
+        return $query->fetchAll(PDO::FETCH_CLASS, $this->class);
     }
 
-    public function update(Event $event): void
+    public function updateEvent(Event $event): void
     {
-        $query = $this->pdo->prepare("UPDATE {$this->table} 
+        $this->update([
+            'id' => $event->getId(),
+            'name' => $event->getName(),
+            'date' => $event->getDate(),
+            'place' => $event->getPlace(),
+            'fb_url' => $event->getFbUrl(),
+            'picture' => $event->getPicture(),
+            'order_nb' => $event->getOrderNb()
+    ],  $event->getId());
+       
+/*         $query = $this->pdo->prepare("UPDATE {$this->table} 
                                         SET name = :name, date = :date, place = :place, fb_url = :fb_url, picture = :picture, order_nb = :order_nb 
                                         WHERE id = :id");
         $ok = $query->execute([
@@ -49,12 +51,22 @@ final class EventTable extends Table {
         ]);
         if ($ok === false) {
             throw new Exception("Mise à jour impossible de l'enregistrement {$event->getId()} de la table {$this->table}");
-        }
+        } */
     }
 
-    public function create(Event $event): void
+    public function insertEvent(Event $event): void
     {
-        $query = $this->pdo->prepare("INSERT INTO {$this->table} 
+        $id = $this->insert([
+            'name' => $event->getName(),
+            'date' => $event->getDate(),
+            'place' => $event->getPlace(),
+            'fb_url' => $event->getFbUrl(),
+            'picture' => $event->getPicture(),
+            'order_nb' => $event->getOrderNb()
+            ]);
+        $event->setId($id);    
+
+        /* $query = $this->pdo->prepare("INSERT INTO {$this->table} 
                                         SET name = :name, date = :date, place = :place, fb_url = :fb_url, picture = :picture, order_nb = :order_nb ");
         $ok = $query->execute([
             'name' => $event->getName(),
@@ -67,7 +79,7 @@ final class EventTable extends Table {
         if ($ok === false) {
             throw new Exception("Création impossible de l'enregistrement dans la table {$this->table}");
         }
-        $event->setId($this->pdo->lastInsertId());
+        $event->setId($this->pdo->lastInsertId()); */
     }
 
 }

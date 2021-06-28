@@ -38,14 +38,23 @@ $router
     ->get('/shiatsu-sur-chaise', 'service/shiatsu-sur-chaise', 'shiatsuSurChaise')
     ->get('/tarifs', '/service/tarifs', 'price')
 
+    // ADMIN
+    // Root pour accéder à la partie connexion/déconnexion
     ->match('/login', 'auth/login', 'login')
     ->post('/logout', 'auth/logout', 'logout')
-    
+    // Gestion des événements
     ->get('/admin', 'admin/event/index', 'admin_events')
     ->match('/admin/event/[i:id]', 'admin/event/edit', 'admin_event')
     ->post('/admin/event/[i:id]/delete', 'admin/event/delete', 'admin_event_delete')
     ->match('/admin/event/new', 'admin/event/new', 'admin_event_new')
-
+    // Gestion des tables
+    ->get('/admin/tables', 'admin/config/index', 'admin_tables')
+    ->match('/admin/table/new', 'admin/config/new', 'admin_table_new')
+    ->get('/admin/table/[a:table]', 'admin/config/editTable', 'admin_table_edit')
+    ->post('/admin/table/[a:table]/delete', 'admin/config/deleteTable', 'admin_table_delete')
+    ->match('/admin/table/new/[a:table]', 'admin/config/new', 'admin_table_newTable')
+    ->match('/admin/table/[a:table]/[i:id]', 'admin/config/edit', 'admin_table_editTable')
+    ->post('/admin/table/[a:table]/[i:id]/delete', 'admin/config/delete', 'admin_table_deleteTable')
 
     ->run();
 

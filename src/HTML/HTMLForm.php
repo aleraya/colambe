@@ -2,8 +2,12 @@
 
 namespace App\HTML;
 
+/**
+ * Class HTMLForm
+ * Permet de générer un formulaire rapidement et simplement.
+ */
 class HTMLForm {
-
+    
     private $data;
     private $errors;
     private $isAdmin;  //En administrateur on affiche toutes les anomalies d'un coup
@@ -16,7 +20,7 @@ class HTMLForm {
         $this->isAdmin = $isAdmin;
     }
     
-    public function input(string $key, string $label, bool $required=false): string
+    public function input(string $key, string $label, bool $required=false, string $attribute=''): string
     {
         $value = $this->getValue($key);
 
@@ -29,7 +33,7 @@ class HTMLForm {
         return <<<HTML
         <div>
             <label for="field{$key}">{$label} {$sup}</label>
-            <input type="{$type}" id="field{$key}" name="{$key}" value="{$value}">
+            <input type="{$type}" id="field{$key}" name="{$key}" value="{$value}" {$attribute}>
             {$this->getError($key)}
         </div>
         HTML;
