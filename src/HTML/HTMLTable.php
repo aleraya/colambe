@@ -2,7 +2,10 @@
 
 namespace App\HTML;
 
+use App\Connection;
+use App\Model\Config;
 use App\Router;
+use App\Table\ConfigTable;
 use App\Table\SlotTable;
 use PDO;
 
@@ -20,16 +23,10 @@ class HTMLTable {
         $slots = (new SlotTable($this->pdo))->allOrderByTime();
         $slotshtml = $this->slots_html($slots);
         $html = '';
+        $pdo = Connection::getPDO();
+        $configTable = new ConfigTable($pdo);
         foreach ($slotshtml as $k=>$value) {
-            switch ($k) {
-                case 1 : $day = 'Lundi'; break;
-                case 2 : $day = 'Mardi'; break;
-                case 3 : $day = 'Mercredi'; break;
-                case 4 : $day = 'Jeudi'; break;
-                case 5 : $day = 'Vendredi'; break;
-                case 6 : $day = 'Samedi'; break;
-                case 7 : $day = 'Dimanche'; break;
-            }
+            $day = $configTable->findTableCode(DAY, $k)->getValue();
             $html .= '<tr>';
             $html .= $this->td($day, "contact-td");
             $html .= $this->td($value, "contact-td");

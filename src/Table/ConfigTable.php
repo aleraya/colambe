@@ -20,9 +20,19 @@ final class ConfigTable extends Table {
 
     public function findAllOfTable(string $table) 
     {
-        $query = $this->pdo->query("SELECT c.* FROM {$this->table} c
-                                     WHERE name = '{$table}' ORDER BY code");
+        $query = $this->pdo->prepare("SELECT c.* FROM {$this->table} c
+                                     WHERE name = ? ORDER BY code");
+        $query->execute([$table]);
         return $query->fetchAll(PDO::FETCH_CLASS, $this->class);
+    }
+
+    public function findTableCode(string $table, string $code) 
+    {
+        $query = $this->pdo->prepare("SELECT c.* FROM {$this->table} c
+                                     WHERE name = :name and code = :code ORDER BY code");
+        $query->execute(['name'=>$table, 'code'=>$code]);
+        $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        return $query->fetch();
     }
 
     /**

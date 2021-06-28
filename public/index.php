@@ -11,6 +11,8 @@ define('HOST', 'http://'.$_SERVER['HTTP_HOST'].'/');
 define('EVENT_PATH', $_SERVER['DOCUMENT_ROOT'].  '/webroot/img/event/');   //C:...
 define('EVENT_HOST', HOST.  '/webroot/img/event/');                        //http://...
 
+define('DAY', 'Jour');
+
 
 /** A METTRE EN COMMENTAIRES POUR LA PROD PERMET D'AFFICHER ERREURS DANS UN FORMAT DETAILLE EN CAS DE PLANTAGE */
 $whoops = new \Whoops\Run;
