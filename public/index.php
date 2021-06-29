@@ -70,7 +70,9 @@ $router
     ->match('/admin/pricesection/new', 'admin/pricesection/new', 'admin_pricesection_new')
     // Gestion des tarifs
     ->get('/admin/prices', 'admin/price/index', 'admin_prices')
-
+    ->match('/admin/price/[i:id]', 'admin/price/edit', 'admin_price')
+    ->post('/admin/price/[i:id]/delete', 'admin/price/delete', 'admin_price_delete')
+    ->match('/admin/price/new', 'admin/price/new', 'admin_price_new')
 
     ->run();
 

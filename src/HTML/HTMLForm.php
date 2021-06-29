@@ -108,6 +108,8 @@ class HTMLForm {
         $sup = '';
         if ($required) {
             $sup = '<sup>*</sup>';
+        } else {
+            $optionsHTML[]= "<option value=''></option>";
         }
         $value = $this->getValue($key);
         foreach ($options as $k => $v){

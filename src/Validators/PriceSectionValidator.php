@@ -6,7 +6,7 @@ use App\Table\PriceSectionTable;
 
 class PriceSectionValidator extends AbstractValidator {
 
-    public function __construct (array $data, PriceSectionTable $table, ?int $eventId=null) 
+    public function __construct (array $data, PriceSectionTable $table, ?int $pricesectionId=null) 
     {
         parent::__construct($data);
         $this->validator->labels(array(
@@ -17,9 +17,9 @@ class PriceSectionValidator extends AbstractValidator {
         $this->validator->rule('lengthMin', ['name'], 3);
         $this->validator->rule('integer', 'order_nb');
         $this->validator->rule('min', 'order_nb', 0);
-        /* $this->validator->rule(function ($field, $value) use ($table, $eventId) {
-            return !$table->exists($field, $value, $eventId);
-        }, 'name', 'existe déjà'); */
+        $this->validator->rule(function ($field, $value) use ($table, $pricesectionId) {
+            return !$table->exists($field, $value, $pricesectionId);
+        }, 'name', 'existe déjà'); 
     }
 
 }

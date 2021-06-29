@@ -35,5 +35,15 @@ final class PriceSectionTable extends Table {
         $pricesection->setId($id);    
 
     }
+    public function list(): ?array
+    {
+        $pricesections = $this->queryAndFectchAll("SELECT * FROM {$this->table} ORDER BY name ASC");
+
+        $results = [];
+        foreach ($pricesections as $pricesection) {
+            $results[$pricesection->getId()] = $pricesection->getName();
+        }
+        return $results;
+    }
 
 }

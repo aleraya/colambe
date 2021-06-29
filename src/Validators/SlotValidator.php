@@ -16,9 +16,6 @@ class SlotValidator extends AbstractValidator {
         ));
         $this->validator->rule('required', ['day', 'start_time', 'end_time']);
         $this->validator->rule('dateFormat', ['start_time','end_time'] , 'H:i');
-        // $this->validator->rule(function ($field, $value) use ($table, $eventId) {
-        //     return !$table->exists($field, $value, $eventId);
-        // }, 'start_time', 'existe déjà'); */
     }
 
 }
