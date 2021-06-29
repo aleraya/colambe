@@ -18,7 +18,19 @@ final class ConfigTable extends Table {
         return $query->fetchAll(PDO::FETCH_CLASS, $this->class);
     }
 
-    public function findAllOfTable(string $table) 
+    public function list($table): ?array
+    {
+        $configs = $this->findAllOfTable($table);
+
+        $results = [];
+        foreach ($configs as $config) {
+            $results[$config->getCode()] = $config->getValue();
+        }
+        return $results;
+    }
+
+
+    private function findAllOfTable(string $table) 
     {
         $query = $this->pdo->prepare("SELECT c.* FROM {$this->table} c
                                      WHERE name = ? ORDER BY code");

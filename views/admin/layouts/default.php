@@ -26,6 +26,7 @@
             <ul class = "l-nav">
                 <!-- <li class="l-nav__menu"><a href="/admin">Evénements</a></li> -->
                 <li class="l-nav__menu"><a href="<?= $router->url('admin_events')?>">Evénements</a></li>
+                <li class="l-nav__menu"><a href="<?= $router->url('admin_slots')?>">Créneaux</a></li>
                 <li class="l-nav__menu"><a href="<?= $router->url('admin_tables')?>">Tables</a></li>
                 <li class="l-nav__menu">
                     <form action="/logout" method = "post" style = "display:inline">

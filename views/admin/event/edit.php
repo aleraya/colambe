@@ -17,6 +17,7 @@ $errors = [];
    
 if(!empty($_POST)) {
     $v = new EventValidator($_POST, $eventTable, $event->getId());
+    $_POST['order_nb'] = (int)$_POST['order_nb'];
     ObjectHelper::hydrate($event, $_POST, ['name', 'date', 'place', 'fb_url', 'order_nb']);
     $validation = $v->validate();
     

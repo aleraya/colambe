@@ -413,7 +413,7 @@ ul {
   text-align: center;
 }
 
-input, textarea {
+input, textarea, select {
   margin: 1% 0;
   background-color: #F7FAFB;
   display: block;

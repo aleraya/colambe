@@ -57,6 +57,12 @@ $router
     ->match('/admin/table/new/[a:table]', 'admin/config/new', 'admin_table_newTable')
     ->match('/admin/table/[a:table]/[i:id]', 'admin/config/edit', 'admin_table_editTable')
     ->post('/admin/table/[a:table]/[i:id]/delete', 'admin/config/delete', 'admin_table_deleteTable')
+    // Gestion des créneaux
+    ->get('/admin/slots', 'admin/slot/index', 'admin_slots')
+    ->match('/admin/slot/[i:id]', 'admin/slot/edit', 'admin_slot')
+    ->match('/admin/slot/new', 'admin/slot/new', 'admin_slot_new')
+    ->post('/admin/slot/[i:id]/delete', 'admin/slot/delete', 'admin_slot_delete')
+
 
     ->run();
 

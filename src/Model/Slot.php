@@ -11,6 +11,8 @@ class Slot {
     private $start_time;
     private $end_time;
 
+    private $dayname;
+
 
     /**
      * Get the value of id
@@ -55,7 +57,15 @@ class Slot {
     /**
      * Get the value of start_time
      */ 
-    public function getStartTime(): ?DateTime
+    public function getStartTime(): ?String
+    {
+        return $this->start_time;
+    }
+
+    /**
+     * Get the value of start_time
+     */ 
+    public function getStartTimeToDateTime(): ?DateTime
     {
         return new DateTime($this->start_time);
     }
@@ -75,9 +85,24 @@ class Slot {
     /**
      * Get the value of end_time
      */ 
-    public function getEndTime(): ?DateTime
+    public function getEndTime(): ?string
+    {
+        return $this->end_time;
+    }
+
+    /**
+     * Get the value of end_time
+     */ 
+    public function getEndTimeToDateTime(): ?DateTime
     {
         return new DateTime($this->end_time);
+    }
+    /**
+     * Get the value of end_time
+     */ 
+    public function getEndTimeToString(): ?String
+    {
+        return $this->end_time;
     }
 
     /**
@@ -92,4 +117,36 @@ class Slot {
         return $this;
     }
     
+
+    /**
+     * Get the value of dayname
+     */ 
+    public function getDayname(): ?string
+    {
+        return $this->dayname;
+    }
+
+    /**
+     * Set the value of dayname
+     *
+     * @return  self
+     */ 
+    public function setDayname(string $dayname): self
+    {
+        $this->dayname = $dayname;
+
+        return $this;
+    }
+    
+    /**
+     * getDays, retourne le code du jour du créneau sous forme d'un tableau,
+     * pour être exploité ensuite dans le input de HTMLForm
+     *
+     * @return array
+     */
+    public function getDays(): array
+    {
+        return $this->day ? [$this->day] : [];
+
+    }   
 }

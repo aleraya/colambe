@@ -54,9 +54,9 @@ class HTMLTable {
                     $phrases[$day] = trim($phrase);
                 }
                 $day = $slot->getDay();
-                $phrase = getHour($slot->getStartTime()).'-'.getHour($slot->getEndTime()); 
+                $phrase = getHour($slot->getStartTimeToDateTime()).'-'.getHour($slot->getEndTimeToDateTime()); 
             } else {
-                $phrase .= ' '. getHour($slot->getStartTime()).'-'.getHour($slot->getEndTime()); 
+                $phrase .= ' '. getHour($slot->getStartTimeToDateTime()).'-'.getHour($slot->getEndTimeToDateTime()); 
             }
         }
         if ($day !== 0) {

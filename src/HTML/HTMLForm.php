@@ -102,7 +102,38 @@ class HTMLForm {
         HTML;
     }
 
-    private function getValue(string $key): ?string
+    public function select(string $key, string $label, array $options=[], bool $required=false, ?string $multiple=''): string
+    {
+        $optionsHTML = [];
+        $sup = '';
+        if ($required) {
+            $sup = '<sup>*</sup>';
+        }
+        $value = $this->getValue($key);
+        foreach ($options as $k => $v){
+            if ($multiple) {
+                $selected = in_array($k, $value) ? ' selected' : '';
+            } else {
+                $selected = $k === $value ? ' selected' : '';
+            }
+            $optionsHTML[]= "<option value=\"$k\"$selected>$v</option>";
+        }   
+
+        $optionsHTML = implode('', $optionsHTML);
+
+        $name = $multiple ? $key."[]" : $key;
+  
+        return <<<HTML
+            <div>
+                <label for="field{$key}">{$label}{$sup}</label>
+                <select type="text" id="field{$key}" name="{$name}" {$multiple}>{$optionsHTML}</select>
+                {$this->getError($key)}
+            </div>
+        HTML;
+
+    }
+
+    private function getValue(string $key)
     {
         if (is_array($this->data)){             //tableau
             return $this->data[$key] ?? null;
@@ -111,7 +142,14 @@ class HTMLForm {
             $method = 'get'.str_replace(' ','', ucwords(str_replace('_', ' ', $key)));
             $value = $this->data->$method();
             if ($value instanceof \DateTimeInterface) {
-                return $value->format("Y-m-d H:i:s");
+                if (strpos($key, "time") === 0) {
+                    return $value->format("Y-m-d H:i:s");
+                } else {
+                    return $value->format("H:i");
+                }
+            }
+            if (strpos($key, "time") !== 0 && strlen($value) > 5) {
+                $value = substr($value, 0, 5);
             }
             return $value;
         }
