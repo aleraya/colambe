@@ -13,8 +13,9 @@ final class SlotTable extends Table{
 
     public function allOrderByTime()    
     {
+        $day = DAY;
         $sql = "SELECT s.*, c.value as dayname FROM {$this->table} s
-             LEFT JOIN config c on c.name = 'Jour' and s.day = c.code 
+             LEFT JOIN config c on c.name = '{$day}' and s.day = c.code 
                  ORDER BY s.day, s.start_time";
         return $this->pdo->query($sql, PDO::FETCH_CLASS, $this->class)->fetchAll();
     }

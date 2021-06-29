@@ -30,7 +30,7 @@ final class ConfigTable extends Table {
     }
 
 
-    private function findAllOfTable(string $table) 
+    function findAllOfTable(string $table) 
     {
         $query = $this->pdo->prepare("SELECT c.* FROM {$this->table} c
                                      WHERE name = ? ORDER BY code");

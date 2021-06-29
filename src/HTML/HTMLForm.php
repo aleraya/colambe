@@ -148,7 +148,7 @@ class HTMLForm {
                     return $value->format("H:i");
                 }
             }
-            if (strpos($key, "time") !== 0 && strlen($value) > 5) {
+            if (strpos($key, "time") != 0 && strlen($value) > 5) {
                 $value = substr($value, 0, 5);
             }
             return $value;

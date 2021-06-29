@@ -18,7 +18,7 @@ $pdo->exec('TRUNCATE TABLE event');
 $pdo->exec('TRUNCATE TABLE slot');
 $pdo->exec('TRUNCATE TABLE menu');
 $pdo->exec('TRUNCATE TABLE price');
-$pdo->exec('TRUNCATE TABLE pricecategory');
+$pdo->exec('TRUNCATE TABLE pricesection');
 $pdo->exec('TRUNCATE TABLE pricetype');
 $pdo->exec('TRUNCATE TABLE config');
 $pdo->exec('TRUNCATE TABLE cardelement');
@@ -264,10 +264,10 @@ for ($i=1; $i<=5; $i++) {
 
 // Remplissage des tarifs
 
-$pdo->exec("INSERT INTO priceCategory (name, order_nb) VALUES ('Particuliers', 10)");
-$pdo->exec("INSERT INTO priceCategory (name, order_nb) VALUES ('Tarifs réduits', 20)");
-$pdo->exec("INSERT INTO priceCategory (name, order_nb) VALUES ('Evénementiel', 30)");
-$pdo->exec("INSERT INTO priceCategory (name, order_nb) VALUES ('Déplacement', 40)");
+$pdo->exec("INSERT INTO pricesection (name, order_nb) VALUES ('Particuliers', 10)");
+$pdo->exec("INSERT INTO pricesection (name, order_nb) VALUES ('Tarifs réduits', 20)");
+$pdo->exec("INSERT INTO pricesection (name, order_nb) VALUES ('Evénementiel', 30)");
+$pdo->exec("INSERT INTO pricesection (name, order_nb) VALUES ('Déplacement', 40)");
 
 $pdo->exec("INSERT INTO priceType SET name = '€' ");
 $pdo->exec("INSERT INTO priceType SET name = '%' ");

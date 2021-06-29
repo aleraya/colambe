@@ -12,6 +12,7 @@ define('EVENT_PATH', $_SERVER['DOCUMENT_ROOT'].  '/webroot/img/event/');   //C:.
 define('EVENT_HOST', HOST.  '/webroot/img/event/');                        //http://...
 
 define('DAY', 'Jour');
+define('PRICETYPE', 'TypeTarif');
 
 
 /** A METTRE EN COMMENTAIRES POUR LA PROD PERMET D'AFFICHER ERREURS DANS UN FORMAT DETAILLE EN CAS DE PLANTAGE */
@@ -62,6 +63,13 @@ $router
     ->match('/admin/slot/[i:id]', 'admin/slot/edit', 'admin_slot')
     ->match('/admin/slot/new', 'admin/slot/new', 'admin_slot_new')
     ->post('/admin/slot/[i:id]/delete', 'admin/slot/delete', 'admin_slot_delete')
+    // Gestion des rubriques de tarifs
+    ->get('/admin/pricesections', 'admin/pricesection/index', 'admin_pricesections')
+    ->match('/admin/pricesection/[i:id]', 'admin/pricesection/edit', 'admin_pricesection')
+    ->post('/admin/pricesection/[i:id]/delete', 'admin/pricesection/delete', 'admin_pricesection_delete')
+    ->match('/admin/pricesection/new', 'admin/pricesection/new', 'admin_pricesection_new')
+    // Gestion des tarifs
+    ->get('/admin/prices', 'admin/price/index', 'admin_prices')
 
 
     ->run();

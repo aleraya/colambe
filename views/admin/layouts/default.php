@@ -28,6 +28,13 @@
                 <li class="l-nav__menu"><a href="<?= $router->url('admin_events')?>">Evénements</a></li>
                 <li class="l-nav__menu"><a href="<?= $router->url('admin_slots')?>">Créneaux</a></li>
                 <li class="l-nav__menu"><a href="<?= $router->url('admin_tables')?>">Tables</a></li>
+                <li class="l-nav__menu"><a href="#">Tarifs</a>
+                    <ul class="l-nav__submenu">
+                        <li><a href="<?= $router->url('admin_pricesections')?>">Rubriques</a></li>
+                        <li><a href="<?= $router->url('admin_prices')?>">Tarifs</a></li>   
+                        <!-- <li><a href="massage-5-continents.html">Massage des 5 continents</a></li>    -->
+                    </ul>
+                </li>
                 <li class="l-nav__menu">
                     <form action="/logout" method = "post" style = "display:inline">
                         <button class="a" type="submit">Se déconnecter</button>
