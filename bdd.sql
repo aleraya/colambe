@@ -100,6 +100,7 @@ CREATE TABLE user (
 CREATE TABLE config (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
+    code VARCHAR(255) NOT NULL,
     value VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     UNIQUE (name)
@@ -113,7 +114,7 @@ CREATE TABLE slot (
     PRIMARY KEY (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-CREATE TABLE priceCategory (
+CREATE TABLE pricesection (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     order_nb INT UNSIGNED NOT NULL,
@@ -130,20 +131,16 @@ CREATE TABLE priceType (
 
 CREATE TABLE price (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    priceCategory_id INT UNSIGNED,
+    pricesection_id INT UNSIGNED,
     name VARCHAR(255) NOT NULL,
     text VARCHAR(255) NOT NULL,
     price INT,
-    priceType_id INT UNSIGNED,
+    pricetype_id INT UNSIGNED,
     PRIMARY KEY (id),
-    CONSTRAINT fk_priceCategory_price
-        FOREIGN KEY (priceCategory_id)
-        REFERENCES priceCategory (id)
+    CONSTRAINT fk_pricesection_price
+        FOREIGN KEY (pricesection_id)
+        REFERENCES pricesection (id)
         ON DELETE SET NULL
-        ON UPDATE RESTRICT,
-    CONSTRAINT fk_priceType_price
-        FOREIGN KEY (priceType_id)
-        REFERENCES priceType (id)
-        ON DELETE RESTRICT
         ON UPDATE RESTRICT
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8  COLLATE utf8_general_ci;
+)  ENGINE=InnoDB DEFAULT CHARSE
+T=utf8  COLLATE utf8_general_ci;
