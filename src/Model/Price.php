@@ -13,6 +13,7 @@ class Price {
     
     private $pricetype;
     private $pricesection;
+    private $nbNameId;
 
 
 
@@ -173,6 +174,26 @@ class Price {
     public function setPricesection(string $pricesection): self
     {
         $this->pricesection = $pricesection;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of nbNameId
+     */ 
+    public function getNbNameId(): ?int
+    {
+        return $this->nbNameId;
+    }
+
+    /**
+     * Set the value of nbNameId
+     *
+     * @return  self
+     */ 
+    public function setNbNameId(int $nbNameId): self
+    {
+        $this->nbNameId = $nbNameId;
 
         return $this;
     }

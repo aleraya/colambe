@@ -46,4 +46,33 @@ final class PriceTable extends Table {
 
     }
 
+    public function findByPriceSection(int $id)
+    {
+        $pricetype = PRICETYPE;
+        $query = $this->pdo -> prepare("
+            SELECT p.*, c.value as pricetype FROM {$this->table} p 
+            LEFT JOIN config c ON c.name = '{$pricetype}' AND c.code = p.priceType_id
+            WHERE pricesection_id = :id ORDER BY name, price
+            ");
+        $query->execute(['id' => $id]);
+        $query->setFetchMode(PDO::FETCH_CLASS, $this->class);
+        $prices = $query->fetchAll();
+        $name = '';
+        $count= 0;
+        // Alimentation nombre d'occurence du nom
+        foreach ($prices as $price) {
+            if ($price->getName()!==$name) {
+                $name = $price->getName();
+                $sql = "SELECT COUNT(id) FROM {$this->table} 
+                        WHERE pricesection_id = :id and name= :name";
+                $query= $this->pdo->prepare($sql);
+                $params = ['id' => $id,
+                         'name' => $name];
+                $query->execute($params);
+                $count = (int)$query->fetch(PDO::FETCH_NUM)[0];
+            }
+            $price->setNbNameId($count);
+        }
+        return $prices;        
+    }
 }

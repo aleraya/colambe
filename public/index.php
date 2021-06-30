@@ -39,7 +39,7 @@ $router
     ->get('/massage-5-continents', '/service/massage-5-continents', 'massage5Continents')
     ->get('/qui-suis-je', 'service/qui-suis-je', 'quiSuisJe')
     ->get('/shiatsu-sur-chaise', 'service/shiatsu-sur-chaise', 'shiatsuSurChaise')
-    ->get('/tarifs', '/service/tarifs', 'price')
+    ->get('/price', '/service/price', 'price')
 
     // ADMIN
     // Root pour accéder à la partie connexion/déconnexion

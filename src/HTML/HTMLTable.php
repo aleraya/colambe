@@ -6,16 +6,19 @@ use App\Connection;
 use App\Model\Config;
 use App\Router;
 use App\Table\ConfigTable;
+use App\Table\PriceTable;
 use App\Table\SlotTable;
 use PDO;
 
 class HTMLTable {
 
     private $pdo;
+    private $pricesection_id;
 
-    public function __construct(PDO $pdo)
+    public function __construct(PDO $pdo, ?int $id=null )
     {
         $this->pdo = $pdo;
+        $this->pricesection_id = $id;
     }
 
     public function displayTableSlot(): string 
@@ -30,6 +33,39 @@ class HTMLTable {
             $html .= '<tr>';
             $html .= $this->td($day, "contact-td");
             $html .= $this->td($value, "contact-td");
+            $html .= '</tr>';
+        }
+        return $html;
+    }
+
+    public function displayTablePrice(): string 
+    {
+        $html='';
+        
+        $priceTable = new PriceTable($this->pdo);
+        $prices = $priceTable->findByPriceSection($this->pricesection_id); 
+
+        $name='';
+        foreach ($prices as $price) {
+            if ($price->getName() !== $name) {
+                $name = $price->getName();
+                $occnb = 0;
+            }
+            $occnb +=1;
+            $html .= '<tr>';
+            if ($occnb === 1) {
+                $html .= $this->td($name, "trace", $price->getNbNameId());
+            }
+            $html .= $this->td($price->getText(), "trace");
+            $p='';
+            if ($price->getPrice()!== null) {
+                if ($price->getPrice()===0) {
+                    $p = 'Offert';
+                } else {
+                    $p = $price->getPrice(). ' '.$price->getPricetype();
+                }
+            }
+            $html .= $this->td($p, "trace");
             $html .= '</tr>';
         }
         return $html;

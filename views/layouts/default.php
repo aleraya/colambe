@@ -39,7 +39,7 @@
                         <li><a href="/evenementiel">Autre événementiel</a></li>
                     </ul>
                 </li>
-                <li class="l-nav__menu"><a href="/tarifs">Tarifs</a></li>
+                <li class="l-nav__menu"><a href="/price">Tarifs</a></li>
                 <li class="l-nav__menu"><a href="/contact">Contact</a></li>
             </ul>
         </nav>
